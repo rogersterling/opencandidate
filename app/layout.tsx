@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   title: "OpenCandidate",
   description:
     "Every politician has a hidden prompt. OpenCandidate makes it readable.",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
