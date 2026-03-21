@@ -2,9 +2,38 @@ import { notFound } from "next/navigation";
 import { candidates, getCandidate } from "@/lib/candidates";
 import ChatWithQuestions from "@/components/ChatWithQuestions";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 export function generateStaticParams() {
   return candidates.map((c) => ({ slug: c.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const candidate = getCandidate(slug);
+  if (!candidate) return {};
+
+  const ogImage = `/api/og?candidate=${encodeURIComponent(candidate.name)}&tagline=${encodeURIComponent(candidate.tagline)}`;
+
+  return {
+    title: `${candidate.name} — OpenCandidate`,
+    description: candidate.tagline,
+    openGraph: {
+      title: `${candidate.name} — OpenCandidate`,
+      description: candidate.tagline,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${candidate.name} — OpenCandidate`,
+      description: candidate.tagline,
+      images: [ogImage],
+    },
+  };
 }
 
 function parseCivicPrompt(prompt: string) {
@@ -209,7 +238,7 @@ export default async function CandidatePage({
       </section>
 
       <footer className="px-6 md:px-12 lg:px-24 py-12 border-t border-[#1e293b] text-[#475569] text-xs">
-        OpenCandidate is an experiment. Not a product. Not a party.
+        OpenCandidate is an open platform for candidates who believe governance should be transparent. Not a product. Not a party. A standard.
       </footer>
     </main>
   );

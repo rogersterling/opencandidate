@@ -10,9 +10,8 @@ export default function Hero() {
         <span className="text-[#d97706]">Make it readable.</span>
       </h1>
       <p className="text-[#94a3b8] text-lg md:text-xl max-w-2xl leading-relaxed mb-12">
-        OpenCandidate puts AI at the center of civic governance. Candidates
-        publish a civic prompt. An AI advisor reasons from it in public. You
-        interrogate both.
+        Real candidates. Real races. A public AI advisor that drafts policy,
+        analyzes bills, and shows its reasoning on every decision.
       </p>
       <p className="text-[#64748b] text-sm uppercase tracking-[0.2em]">
         Transparency, not objectivity

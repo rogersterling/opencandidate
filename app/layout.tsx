@@ -15,12 +15,39 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "OpenCandidate",
+  title: "OpenCandidate — Every politician has a hidden prompt. Make it readable.",
   description:
-    "Every politician has a hidden prompt. OpenCandidate makes it readable.",
+    "An open platform where political candidates publish their values as code, use AI to draft policy, and show their reasoning on every decision.",
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
+  },
+  metadataBase: new URL("https://opencandidate.org"),
+  openGraph: {
+    title: "OpenCandidate — Every politician has a hidden prompt. Make it readable.",
+    description:
+      "An open platform where political candidates publish their values as code, use AI to draft policy, and show their reasoning on every decision.",
+    url: "https://opencandidate.org",
+    siteName: "OpenCandidate",
+    type: "website",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "OpenCandidate",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OpenCandidate — Every politician has a hidden prompt. Make it readable.",
+    description:
+      "An open platform where political candidates publish their values as code, use AI to draft policy, and show their reasoning on every decision.",
+    images: ["/api/og"],
+  },
+  other: {
+    "theme-color": "#0f172a",
   },
 };
 

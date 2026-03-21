@@ -17,9 +17,64 @@ export default function Home() {
           <p className="font-serif text-2xl md:text-3xl text-[#faf7f2] leading-snug mb-8">
             Every politician has a hidden prompt — donors, ideology, ambition, personal grudges. An OpenCandidate makes theirs readable.
           </p>
-          <p className="text-[#94a3b8] leading-relaxed">
+          <p className="text-[#94a3b8] leading-relaxed mb-6">
             Today, voters reverse-engineer a candidate&apos;s real priorities from votes, donor lists, and body language. That&apos;s inefficient at best, manipulative at worst. OpenCandidate replaces guesswork with source code.
           </p>
+          <p className="text-[#94a3b8] leading-relaxed border-l-2 border-[#d97706] pl-4">
+            Think of a civic prompt as a politician&apos;s operating manual — written before they take office, telling an AI exactly what they care about and in what order. Their priorities, their fiscal philosophy, the tradeoffs they&apos;ll accept and the ones they won&apos;t.
+          </p>
+        </div>
+      </section>
+
+      {/* In Practice */}
+      <section className="px-6 md:px-12 lg:px-24 py-24 border-t border-[#1e293b]">
+        <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
+          In Practice
+        </p>
+        <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-12 max-w-2xl">
+          What an OpenCandidate actually does
+        </h2>
+        <div className="max-w-3xl space-y-8">
+          <div>
+            <p className="text-[#faf7f2] text-lg mb-2">
+              <span className="font-serif font-bold">Zoning Vote</span>
+            </p>
+            <p className="text-[#94a3b8] leading-relaxed">
+              A developer requests a variance for a 12-story building in a residential neighborhood. The AI advisor analyzes it against the civic prompt&apos;s density and affordability priorities, publishes its recommendation with reasoning, and the candidate votes. If they vote differently, they explain why.
+            </p>
+          </div>
+          <div>
+            <p className="text-[#faf7f2] text-lg mb-2">
+              <span className="font-serif font-bold">Bill Drafting</span>
+            </p>
+            <p className="text-[#94a3b8] leading-relaxed">
+              City council needs a short-term rental ordinance. The AI drafts one based on the civic prompt&apos;s housing and local business priorities. The full draft and reasoning chain are public before the first reading.
+            </p>
+          </div>
+          <div>
+            <p className="text-[#faf7f2] text-lg mb-2">
+              <span className="font-serif font-bold">Budget Season</span>
+            </p>
+            <p className="text-[#94a3b8] leading-relaxed">
+              The AI proposes line-item allocations based on stated priorities. Transit gets 40% because the civic prompt ranks it first. The public can see the math. Every dollar traces back to a value.
+            </p>
+          </div>
+          <div>
+            <p className="text-[#faf7f2] text-lg mb-2">
+              <span className="font-serif font-bold">Constituent Complaint</span>
+            </p>
+            <p className="text-[#94a3b8] leading-relaxed">
+              A resident reports illegal dumping in their neighborhood. The AI logs the complaint, cross-references it against infrastructure priorities, and recommends a response. The exchange is public.
+            </p>
+          </div>
+          <div>
+            <p className="text-[#faf7f2] text-lg mb-2">
+              <span className="font-serif font-bold">Public Vote</span>
+            </p>
+            <p className="text-[#94a3b8] leading-relaxed">
+              Before every council vote, the AI publishes how it would vote and why, based on the civic prompt. The candidate&apos;s actual vote is recorded next to it. Alignment and divergence are both visible.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -52,6 +107,11 @@ export default function Home() {
               num: "IV",
               title: "Explain every override",
               desc: "When a candidate overrides the AI's recommendation, they explain why publicly. Disagreement is fine. Silence isn't.",
+            },
+            {
+              num: "V",
+              title: "Use AI for real governance",
+              desc: "Run policy analysis, bill drafts, budget proposals, and vote recommendations through the AI advisor. Not as a novelty. As the actual decision-support process.",
             },
           ].map((item) => (
             <div
@@ -130,13 +190,13 @@ export default function Home() {
         </p>
         <div className="max-w-3xl space-y-8">
           <p className="text-[#cbd5e1] text-lg leading-relaxed">
-            Voters make decisions with incomplete information. Candidates speak in generalities, dodge direct questions, and reveal their real priorities only through years of voting records. By then, the election is over.
+            A city councilmember campaigns on affordability, then votes to approve a luxury development with tax incentives. Voters find out months later from a local reporter. By then, the next election is two years away.
           </p>
           <p className="text-[#cbd5e1] text-lg leading-relaxed">
-            A civic prompt changes the incentive structure. When your values are public and an AI reasons from them consistently, contradictions surface fast. You can&apos;t promise fiscal discipline to one audience and new spending to another when the same AI is answering both.
+            A mayor promises fiscal discipline during the campaign. In office, they approve a $200 million stadium bond. The reasoning? &ldquo;Economic development.&rdquo; No analysis published. No tradeoffs shown.
           </p>
           <p className="text-[#cbd5e1] text-lg leading-relaxed">
-            This isn&apos;t about replacing human judgment with AI. It&apos;s about making human judgment legible. The candidate still decides. The AI just makes the reasoning visible.
+            An OpenCandidate can&apos;t do this. Their AI advisor would flag the contradiction the moment the vote hits the agenda. The public would see it before the vote, not after.
           </p>
         </div>
       </section>
@@ -171,7 +231,7 @@ export default function Home() {
       </section>
 
       <footer className="px-6 md:px-12 lg:px-24 py-12 border-t border-[#1e293b] text-[#475569] text-xs">
-        OpenCandidate is an experiment. Not a product. Not a party.
+        OpenCandidate is an open platform for candidates who believe governance should be transparent. Not a product. Not a party. A standard.
       </footer>
     </main>
   );
