@@ -4,7 +4,15 @@ import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { useRef, useEffect, useState, useMemo } from "react";
 
-export default function Chat({ candidateSlug }: { candidateSlug: string }) {
+export default function Chat({
+  candidateSlug,
+  initialQuestion,
+  onQuestionSent,
+}: {
+  candidateSlug: string;
+  initialQuestion?: string;
+  onQuestionSent?: () => void;
+}) {
   const transport = useMemo(
     () =>
       new DefaultChatTransport({
@@ -26,11 +34,33 @@ export default function Chat({ candidateSlug }: { candidateSlug: string }) {
     }
   }, [messages]);
 
+  // Handle initial question from PopularQuestions click
+  useEffect(() => {
+    if (initialQuestion && !isLoading) {
+      sendMessage({ text: initialQuestion });
+      // Fire and forget: store the question
+      fetch("/api/questions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug: candidateSlug, question: initialQuestion }),
+      }).catch(() => {});
+      onQuestionSent?.();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialQuestion]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
-    sendMessage({ text: input });
+    const question = input.trim();
+    sendMessage({ text: question });
     setInput("");
+    // Fire and forget: store the question
+    fetch("/api/questions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ slug: candidateSlug, question }),
+    }).catch(() => {});
   };
 
   return (

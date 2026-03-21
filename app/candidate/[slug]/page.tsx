@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { candidates, getCandidate } from "@/lib/candidates";
-import Chat from "@/components/Chat";
+import ChatWithQuestions from "@/components/ChatWithQuestions";
 import Link from "next/link";
 
 export function generateStaticParams() {
@@ -204,7 +204,7 @@ export default async function CandidatePage({
           This AI reasons from the civic prompt above. Its answers, its biases, and its reasoning are all public. Push it on edge cases.
         </p>
         <div className="max-w-2xl">
-          <Chat candidateSlug={candidate.slug} />
+          <ChatWithQuestions candidateSlug={candidate.slug} fallbackFaqs={candidate.faq} />
         </div>
       </section>
 
