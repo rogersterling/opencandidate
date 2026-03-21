@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Inter, -apple-system, Helvetica Neue, sans-serif;
+    background: #0f172a;
+    color: #cbd5e1;
+    width: 8.5in;
+    height: 11in;
+    padding: 0.5in 0.6in;
+    font-size: 9.5pt;
+    line-height: 1.45;
+    display: flex;
+    flex-direction: column;
+  }
+  h1, h2, h3 { font-family: Georgia, serif; color: #faf7f2; font-weight: 400; }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1e293b;
+    margin-bottom: 16px;
+  }
+  .logo { font-family: Georgia, serif; font-size: 14pt; color: #faf7f2; }
+  .logo span { color: #d97706; }
+  .url { color: #94a3b8; font-size: 8.5pt; }
+  .headline {
+    font-family: Georgia, serif;
+    font-size: 20pt;
+    color: #faf7f2;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    max-width: 5.5in;
+  }
+  .label {
+    color: #d97706;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 5px;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 14px;
+  }
+  .section { margin-bottom: 14px; }
+  .section p { color: #94a3b8; font-size: 8.5pt; line-height: 1.5; }
+  .example-title { font-family: Georgia, serif; color: #faf7f2; font-size: 9.5pt; margin-bottom: 2px; }
+  .example { margin-bottom: 8px; }
+  .example p { color: #94a3b8; font-size: 8pt; line-height: 1.45; }
+  .step { display: flex; gap: 8px; margin-bottom: 6px; }
+  .step-num { color: #d97706; font-family: Georgia, serif; font-size: 11pt; flex-shrink: 0; min-width: 14px; }
+  .step p { font-size: 8.5pt; color: #94a3b8; }
+  .needs-item { display: flex; gap: 6px; margin-bottom: 3px; }
+  .needs-item .arrow { color: #d97706; flex-shrink: 0; }
+  .needs-item p { font-size: 8.5pt; }
+  .status-item { display: flex; gap: 6px; margin-bottom: 3px; }
+  .status-item .dot { color: #d97706; flex-shrink: 0; }
+  .status-item p { font-size: 8.5pt; }
+  .footer {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid #1e293b;
+    display: flex;
+    justify-content: space-between;
+    color: #64748b;
+    font-size: 7.5pt;
+  }
+  .divider { border-top: 1px solid #1e293b; margin: 2px 0 14px 0; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">Open<span>Candidate</span></div>
+    <div class="url">opencandidate.org</div>
+  </div>
+
+  <div class="headline">What if every politician's priorities were source code?</div>
+
+  <div class="two-col">
+    <div>
+      <div class="label">The Problem</div>
+      <p style="color:#94a3b8;font-size:8.5pt;line-height:1.5">
+        Politicians campaign on values, then govern in a black box. Voters reverse-engineer priorities from votes, donor lists, and press conferences. By the time a contradiction surfaces, the next election is years away.
+      </p>
+    </div>
+    <div>
+      <div class="label">The Solution</div>
+      <p style="color:#94a3b8;font-size:8.5pt;line-height:1.5">
+        OpenCandidate is an open standard for political transparency. Candidates publish a "civic prompt" — a machine-readable set of values, priorities, and tradeoffs. An AI advisor reasons against that prompt in public. Citizens interrogate it directly.
+      </p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="label">How It Works</div>
+    <div class="step"><span class="step-num">1.</span><p>Candidate publishes their civic prompt — priorities in order, fiscal philosophy, accepted and rejected tradeoffs.</p></div>
+    <div class="step"><span class="step-num">2.</span><p>An AI advisor answers policy questions publicly, with full reasoning chains traced back to the prompt.</p></div>
+    <div class="step"><span class="step-num">3.</span><p>Citizens challenge the AI on edge cases. Contradictions surface before votes, not after.</p></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="label">In Practice</div>
+    <div class="two-col" style="margin-bottom:0">
+      <div>
+        <div class="example">
+          <div class="example-title">Zoning</div>
+          <p>Developer requests a 12-story variance. The AI analyzes it against density/affordability priorities, publishes its recommendation. If the candidate votes differently, they explain why.</p>
+        </div>
+        <div class="example">
+          <div class="example-title">Budget</div>
+          <p>AI proposes line-item allocations based on stated priorities. Every dollar traces to a value. The public sees the math.</p>
+        </div>
+      </div>
+      <div>
+        <div class="example">
+          <div class="example-title">Accountability</div>
+          <p>Candidate campaigns on fiscal discipline, then a $200M stadium bond hits the agenda. The AI flags the contradiction before the vote, not after.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="label">Why Austin</div>
+    <p style="color:#94a3b8;font-size:8.5pt;line-height:1.5">
+      Austin is the right proving ground. A tech-forward city with an engaged electorate, growing pains around density and affordability, and a council structure where transparency has real impact. 10 council districts + a mayor. Enough complexity to prove the model. Small enough to actually do it.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="two-col">
+    <div>
+      <div class="label">What We Need</div>
+      <div class="needs-item"><span class="arrow">→</span><p>Advisors with civic tech, local government, or campaign experience</p></div>
+      <div class="needs-item"><span class="arrow">→</span><p>Funders who back transparency and democratic innovation</p></div>
+      <div class="needs-item"><span class="arrow">→</span><p>A real candidate willing to run as the first OpenCandidate</p></div>
+    </div>
+    <div>
+      <div class="label">Current Status</div>
+      <div class="status-item"><span class="dot">●</span><p>Live demo at opencandidate.org with 3 fictional Austin mayoral candidates</p></div>
+      <div class="status-item"><span class="dot">●</span><p>Open source platform built on Next.js + AI</p></div>
+      <div class="status-item"><span class="dot">●</span><p>Looking for the first real race: Austin City Council 2026</p></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>opencandidate.org · An open platform for transparent governance</span>
+    <span>Contact: sam@runpoint.ai</span>
+  </div>
+</body>
+</html>
