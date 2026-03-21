@@ -6,6 +6,18 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
+      {/* Nav */}
+      <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-24 py-4 flex items-center justify-between bg-[#0f172a]/90 backdrop-blur-sm border-b border-[#1e293b]/50">
+        <Link href="/" className="font-serif text-lg text-[#faf7f2]">
+          OpenCandidate
+        </Link>
+        <div className="flex items-center gap-6 text-sm">
+          <Link href="/updates" className="text-[#94a3b8] hover:text-[#faf7f2] transition-colors">Updates</Link>
+          <Link href="/involve" className="text-[#94a3b8] hover:text-[#faf7f2] transition-colors">Get Involved</Link>
+          <Link href="/brief" className="text-[#94a3b8] hover:text-[#faf7f2] transition-colors">Brief</Link>
+        </div>
+      </nav>
+
       <Hero />
 
       {/* The Pitch */}
@@ -201,14 +213,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Advisory Board */}
+      <section className="px-6 md:px-12 lg:px-24 py-24 border-t border-[#1e293b]">
+        <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
+          Leadership
+        </p>
+        <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-6">
+          Advisory Board
+        </h2>
+        <p className="text-[#94a3b8] text-lg leading-relaxed max-w-2xl">
+          Now forming. Seeking leaders in civic technology, local government,
+          and democratic innovation.
+        </p>
+      </section>
+
       {/* Candidates */}
       <section className="px-6 md:px-12 lg:px-24 py-24 border-t border-[#1e293b]">
         <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-4">
-          Sample candidates
+          Platform Demo
         </h2>
         <p className="text-[#64748b] text-sm mb-12">
-          Three fictional candidates for Mayor of Austin, TX. Same race,
-          different civic prompts.
+          Three demo candidates for Mayor of Austin, TX. Same race,
+          different civic prompts. Try the AI advisors.
         </p>
         <div>
           {candidates.map((c) => (
@@ -222,16 +248,28 @@ export default function Home() {
         <h2 className="font-serif text-3xl md:text-5xl text-[#faf7f2] mb-6 max-w-2xl mx-auto">
           What would your civic prompt say?
         </h2>
-        <Link
-          href="/create"
-          className="inline-block px-8 py-4 bg-[#d97706] text-white text-sm font-medium rounded-lg hover:bg-[#b45309] transition-colors"
-        >
-          Create a candidate
-        </Link>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link
+            href="/create"
+            className="inline-block px-8 py-4 bg-[#d97706] text-white text-sm font-medium rounded-lg hover:bg-[#b45309] transition-colors"
+          >
+            Create a candidate
+          </Link>
+          <Link
+            href="/involve"
+            className="inline-block px-8 py-4 border border-[#d97706] text-[#d97706] text-sm font-medium rounded-lg hover:bg-[#d97706] hover:text-white transition-colors"
+          >
+            Get involved
+          </Link>
+        </div>
       </section>
 
-      <footer className="px-6 md:px-12 lg:px-24 py-12 border-t border-[#1e293b] text-[#475569] text-xs">
-        OpenCandidate is an open platform for candidates who believe governance should be transparent. Not a product. Not a party. A standard.
+      <footer className="px-6 md:px-12 lg:px-24 py-12 border-t border-[#1e293b] text-[#475569] text-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <span>OpenCandidate is an open platform for candidates who believe governance should be transparent. Not a product. Not a party. A standard.</span>
+        <div className="flex gap-4">
+          <Link href="/updates" className="hover:text-[#94a3b8] transition-colors">Updates</Link>
+          <Link href="/involve" className="hover:text-[#94a3b8] transition-colors">Get Involved</Link>
+        </div>
       </footer>
     </main>
   );
