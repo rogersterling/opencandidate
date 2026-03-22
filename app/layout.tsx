@@ -14,10 +14,12 @@ const sans = Inter({
   display: "swap",
 });
 
+const description =
+  "OpenCandidate turns a campaign platform into a public governing system. AI applies it to bills, budgets, and major decisions so the public can see alignment, override, and drift.";
+
 export const metadata: Metadata = {
   title: "OpenCandidate — Hold politicians to the platform they ran on.",
-  description:
-    "OpenCandidate turns a campaign platform into a public decision model that can analyze bills, draft policy, and score whether a politician is sticking to the plan.",
+  description,
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
@@ -25,8 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://opencandidate.org"),
   openGraph: {
     title: "OpenCandidate — Hold politicians to the platform they ran on.",
-    description:
-      "OpenCandidate turns a campaign platform into a public decision model that can analyze bills, draft policy, and score whether a politician is sticking to the plan.",
+    description,
     url: "https://opencandidate.org",
     siteName: "OpenCandidate",
     type: "website",
@@ -42,8 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "OpenCandidate — Hold politicians to the platform they ran on.",
-    description:
-      "OpenCandidate turns a campaign platform into a public decision model that can analyze bills, draft policy, and score whether a politician is sticking to the plan.",
+    description,
     images: ["/api/og"],
   },
   other: {

@@ -3,26 +3,26 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Get Involved — OpenCandidate",
-  description: "Advise, fund, or run as the first OpenCandidate.",
+  description: "Advise, fund, or run with a public governing system.",
 };
 
 const tracks = [
   {
     label: "Advise",
     description:
-      "You have civic tech, local government, or campaign experience. We need people who understand how elections actually work and where transparency breaks down.",
+      "You know campaigns, local government, policy operations, or civic tech. We need people who can pressure-test the mechanism against how politics actually works.",
     mailto: "mailto:sam@runpoint.ai?subject=OpenCandidate%20-%20Advise",
   },
   {
     label: "Fund",
     description:
-      "You back transparency and democratic innovation. OpenCandidate is pre-revenue and intentionally non-partisan. Early funding keeps it independent.",
+      "You want to back an accountability mechanism, not another awareness campaign. Early funding helps build the system, the public record, and the first real implementation.",
     mailto: "mailto:sam@runpoint.ai?subject=OpenCandidate%20-%20Fund",
   },
   {
     label: "Run",
     description:
-      "You're considering running as the first OpenCandidate. City council, school board, mayor. Any race where voters deserve to see the reasoning behind every decision.",
+      "You are willing to run for office and be held to the platform you campaigned on. That means publishing decision rules, running major decisions through them, and owning overrides in public.",
     mailto: "mailto:sam@runpoint.ai?subject=OpenCandidate%20-%20Run",
   },
 ];
@@ -41,12 +41,10 @@ export default function InvolvePage() {
           Get Involved
         </p>
         <h1 className="font-serif text-4xl md:text-5xl text-[#faf7f2] leading-tight max-w-3xl mb-6">
-          Three ways to help build this.
+          Three ways to help make this real.
         </h1>
         <p className="text-[#94a3b8] text-lg max-w-2xl leading-relaxed mb-16">
-          OpenCandidate is early. The advisory board is forming, funding is
-          open, and we're looking for the first real candidate willing to run
-          transparent.
+          OpenCandidate needs people who can test the mechanism, fund the first real deployments, or run for office under a public governing system.
         </p>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl">
@@ -73,8 +71,7 @@ export default function InvolvePage() {
       </section>
 
       <footer className="px-6 md:px-12 lg:px-24 py-12 border-t border-[#1e293b] text-[#475569] text-xs">
-        OpenCandidate is an open platform for candidates who believe governance
-        should be transparent. Not a product. Not a party. A standard.
+        OpenCandidate is an open project for candidates who want voters to see the plan, the recommendation, and the override record.
       </footer>
     </main>
   );

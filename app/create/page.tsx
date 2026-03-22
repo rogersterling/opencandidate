@@ -16,19 +16,19 @@ const races = [
 const starterPrompt = `Core value: [What matters most to you in one sentence]
 
 Priorities (in order):
-1. [First priority — what you'd spend political capital on first]
-2. [Second priority]
-3. [Third priority]
-4. [Fourth priority]
-5. [Fifth priority]
+1. [First governing priority — what you would spend political capital on first]
+2. [Second governing priority]
+3. [Third governing priority]
+4. [Fourth governing priority]
+5. [Fifth governing priority]
 
-Fiscal approach: [How do you think about spending and revenue?]
+Fiscal approach: [How should this governing system think about spending, revenue, debt, and savings?]
 
-Tradeoffs I accept: [What costs are you willing to pay for your priorities?]
+Tradeoffs I accept: [What costs are you willing to accept to follow the platform?]
 
-Tradeoffs I reject: [What lines won't you cross?]
+Tradeoffs I reject: [What lines will this governing system not cross?]
 
-Tone: [How should the AI sound when representing your positions?]`;
+Tone: [How should the public-facing system sound when explaining decisions?]`;
 
 export default function CreatePage() {
   const [race, setRace] = useState("");
@@ -50,11 +50,10 @@ export default function CreatePage() {
 
       <div className="px-6 md:px-12 lg:px-24 py-16 max-w-4xl animate-fade-in">
         <h1 className="font-serif text-4xl md:text-5xl text-[#faf7f2] mb-4">
-          Create a candidate
+          Build a public governing system
         </h1>
-        <p className="text-[#94a3b8] mb-12">
-          Pick a race, write your civic prompt, and see how an AI would
-          represent your values in public.
+        <p className="text-[#94a3b8] mb-12 max-w-2xl leading-relaxed">
+          Define the campaign platform, decision rules, and governing priorities a candidate would be expected to follow in office. The structured text below still powers the demo. The labels are for humans.
         </p>
 
         <div className="space-y-8">
@@ -103,8 +102,11 @@ export default function CreatePage() {
 
           <div>
             <label className="block text-[#64748b] text-xs uppercase tracking-widest mb-2">
-              Civic Prompt
+              Campaign platform and decision rules
             </label>
+            <p className="text-[#64748b] text-sm mb-4 leading-relaxed max-w-2xl">
+              Use the structure below to define governing priorities, fiscal approach, accepted tradeoffs, and red lines. This becomes the basis of the public governing system in the demo.
+            </p>
             <textarea
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
@@ -117,14 +119,14 @@ export default function CreatePage() {
             onClick={() => setShowPreview(!showPreview)}
             className="px-6 py-3 bg-[#d97706] text-white text-sm font-medium rounded-lg hover:bg-[#b45309] transition-colors"
           >
-            {showPreview ? "Hide preview" : "Preview civic prompt"}
+            {showPreview ? "Hide preview" : "Preview governing system"}
           </button>
 
           {showPreview && (
             <div className="animate-slide-up">
               <CivicPrompt prompt={prompt} />
               <p className="text-[#475569] text-xs mt-4">
-                In V1, candidates are demo-only. Full deployment coming soon.
+                Demo mode only for now. This preview shows how the governing system would be published on a candidate page.
               </p>
             </div>
           )}

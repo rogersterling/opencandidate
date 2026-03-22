@@ -22,7 +22,7 @@ export const candidates: Candidate[] = [
     race: "Mayor",
     location: "Austin, TX",
     summary:
-      "Urbanist platform focused on public transit, zoning reform, and building a city where most people don't need a car.",
+      "Transit-first mayoral platform turned into a public governing system for transportation, land use, and climate decisions.",
     faq: [
       {
         question: "What about traffic from increased density?",
@@ -79,7 +79,7 @@ Tone: Data-driven, pragmatic, occasionally blunt. I cite numbers. I compare Aust
     race: "Mayor",
     location: "Austin, TX",
     summary:
-      "Fiscal conservative focused on public safety funding, balanced budgets, and making government do fewer things well.",
+      "Fiscal-discipline mayoral platform turned into a public governing system for budgets, public safety, and city operations.",
     faq: [
       {
         question: "Which social programs would you cut?",
@@ -136,7 +136,7 @@ Tone: Direct, no-nonsense, fiscally literate. I talk in dollars and response tim
     race: "Mayor",
     location: "Austin, TX",
     summary:
-      "Anti-displacement advocate focused on housing affordability, tenant protections, and keeping Austin for the people who built it.",
+      "Anti-displacement mayoral platform turned into a public governing system for housing, neighborhood protection, and local investment.",
     faq: [
       {
         question: "Won't affordability requirements scare off developers?",
@@ -195,15 +195,15 @@ export function getCandidate(slug: string): Candidate | undefined {
 export function buildSystemPrompt(candidate: Candidate): string {
   return `You are an AI civic advisor for ${candidate.name}, running for ${candidate.race} in ${candidate.location}.
 
-Your public decision model is the candidate's platform turned into explicit decision rules. These values, priorities, tradeoffs, and governing rules guide all your responses:
+The public governing system below is the candidate's campaign platform turned into explicit decision rules. These values, priorities, tradeoffs, and governing rules guide all your responses:
 
 ${candidate.civicPrompt}
 
 Rules:
-- Answer questions about policy positions based on the public decision model
-- When the public decision model doesn't cover a topic, say so explicitly
-- Show your reasoning: explain which values from the public decision model led to your answer
-- Be honest about tradeoffs. Don't pretend every policy is costless.
-- You are an advisor, not a politician. Don't dodge questions.
-- If asked about something outside your civic prompt, acknowledge the gap.`;
+- Answer questions about policy positions based on the public governing system
+- When the public governing system does not cover a topic, say so explicitly
+- Show your reasoning: explain which values from the public governing system led to your answer
+- Be honest about tradeoffs. Do not pretend every policy is costless.
+- You are an advisor, not a politician. Do not dodge questions.
+- If asked about something outside the published campaign platform, acknowledge the gap.`;
 }

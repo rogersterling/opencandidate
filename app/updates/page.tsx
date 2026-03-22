@@ -3,32 +3,36 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Updates — OpenCandidate",
-  description: "News and updates from the OpenCandidate project.",
+  description: "Notes on the OpenCandidate project and public governing systems.",
 };
 
 const posts = [
   {
     slug: "why-opencandidate",
-    title: "Why OpenCandidate",
-    date: "March 21, 2026",
+    title: "Why OpenCandidate exists",
+    date: "March 22, 2026",
     author: "OpenCandidate",
-    content: `Every politician has a hidden prompt. The donors they listen to, the ideology they absorbed in college, the grudge from a primary ten years ago. All of it shapes how they vote. None of it is written down.
+    content: `Most politicians do not break their promises all at once. They drift.
 
-We just accept this. We watch debates, parse stump speeches, scan donor filings. We try to reverse-engineer what a candidate actually believes from breadcrumbs. It works about as well as you'd expect.
+A donor asks for an exception. A party leader asks for patience. A budget gets tight. A deal gets cut. By the time voters see the pattern, the explanation is already polished and the decision is already made.
 
-So here's the question: what if a candidate just told you?
+OpenCandidate is built around that reality.
 
-Not a platform page with bullet points. An actual decision-making framework. Their priorities ranked. Their fiscal philosophy stated. The tradeoffs they'll accept and the ones they won't. Written before they take office.
+The point is not that AI should run government. The point is that a campaign platform should not disappear the moment someone takes office.
 
-Then you hand that framework to an AI and let anyone ask it questions. In public. How would this candidate vote on a zoning variance? What would they cut if the budget falls short? Push it on the hard stuff. Find the contradictions. That's the whole point.
+A candidate should be able to publish the platform they ran on, turn it into explicit decision rules, and govern through those rules in public. Bills, budgets, land use votes, procurement decisions. The repetitive work of applying the rules can be done by AI. The officeholder remains the officeholder.
 
-OpenCandidate is that idea turned into a standard. A candidate publishes their civic prompt. An AI advisor reasons against it in the open. Citizens interrogate it. The candidate governs alongside it.
+Then the public can compare two things: what the system recommended and what the politician actually did.
 
-We started in Austin because it's the right city for this. Big enough to matter. Weird enough to try something new. Local races where one council seat affects your street, your water bill, your kid's school.
+That comparison matters. It creates a public record of alignment and override. It makes quiet drift harder. It makes political pressure easier to spot. It gives voters something better than vibes and cleanup statements.
 
-This isn't a product. There's no app to download and no subscription. It's a standard for how candidates can operate if they choose transparency over performance.
+Overrides still happen. They should. Politics has edge cases, emergencies, and facts that change. The problem is not override. The problem is hidden override.
 
-We're looking for the first real candidate willing to try it.`,
+That is the whole idea in one line: hold politicians to the platform they ran on.
+
+We are starting with local politics because the work is concrete there. Council votes matter. Budget choices matter. Zoning decisions matter. A city is small enough to implement this and large enough for the public record to matter.
+
+The current site shows three fictional Austin candidates with different campaign platforms and different governing rules. The next step is a real candidate willing to bind themselves to the system in public.`
   },
 ];
 
@@ -46,7 +50,7 @@ export default function UpdatesPage() {
           Updates
         </p>
         <h1 className="font-serif text-4xl md:text-5xl text-[#faf7f2] mb-16">
-          What&apos;s happening
+          Project notes
         </h1>
 
         <div className="max-w-3xl space-y-16">
@@ -69,8 +73,7 @@ export default function UpdatesPage() {
       </section>
 
       <footer className="px-6 md:px-12 lg:px-24 py-12 border-t border-[#1e293b] text-[#475569] text-xs">
-        OpenCandidate is an open platform for candidates who believe governance
-        should be transparent. Not a product. Not a party. A standard.
+        OpenCandidate is an open project for candidates who want a public governing system people can inspect.
       </footer>
     </main>
   );
