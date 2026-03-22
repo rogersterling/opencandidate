@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import CandidateCard from "@/components/CandidateCard";
+import SiteHeader from "@/components/SiteHeader";
 import { candidates } from "@/lib/candidates";
 import Link from "next/link";
 
@@ -75,16 +76,7 @@ const decisionItems = [
 export default function Home() {
   return (
     <main>
-      <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-24 py-4 flex items-center justify-between bg-[#0f172a]/90 backdrop-blur-sm border-b border-[#1e293b]/50">
-        <Link href="/" className="font-serif text-lg text-[#faf7f2]">
-          OpenCandidate
-        </Link>
-        <div className="flex items-center gap-6 text-sm">
-          <Link href="/updates" className="text-[#94a3b8] hover:text-[#faf7f2] transition-colors">Updates</Link>
-          <Link href="/involve" className="text-[#94a3b8] hover:text-[#faf7f2] transition-colors">Get Involved</Link>
-          <Link href="/brief" className="text-[#94a3b8] hover:text-[#faf7f2] transition-colors">Brief</Link>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <Hero />
 

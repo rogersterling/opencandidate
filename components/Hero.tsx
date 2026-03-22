@@ -25,11 +25,11 @@ const artifactRows = [
 
 export default function Hero() {
   return (
-    <section className="px-6 pt-28 pb-20 md:px-12 md:pt-36 md:pb-28 lg:px-24 animate-fade-in">
+    <section className="px-6 pt-32 pb-20 md:px-12 md:pt-40 md:pb-28 lg:px-24 animate-fade-in">
       <div className="mx-auto grid max-w-7xl items-start gap-16 lg:grid-cols-[minmax(0,0.94fr)_minmax(360px,1.06fr)] xl:gap-20">
-        <div className="max-w-[40rem] pt-4">
-          <p className="mb-8 text-sm uppercase tracking-[0.3em] text-[#d97706]">
-            OpenCandidate
+        <div className="max-w-[40rem] pt-2 md:pt-4">
+          <p className="mb-6 text-[11px] uppercase tracking-[0.24em] text-[#d97706]">
+            Public governing systems
           </p>
           <h1 className="mb-8 text-balance font-serif text-5xl leading-[0.96] text-[#faf7f2] md:text-7xl lg:text-[5.75rem]">
             A candidate platform you can audit after election day.
