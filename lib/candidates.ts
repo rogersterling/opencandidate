@@ -3,6 +3,14 @@ export interface FAQ {
   answer: string;
 }
 
+export interface DecisionSample {
+  issue: string;
+  recommendation: string;
+  action: string;
+  outcome: "Aligned" | "Override";
+  note: string;
+}
+
 export interface Candidate {
   slug: string;
   name: string;
@@ -11,6 +19,9 @@ export interface Candidate {
   location: string;
   civicPrompt: string;
   summary: string;
+  alignmentScore: number;
+  scoreDelta: number;
+  recentDecisions: DecisionSample[];
   faq: FAQ[];
 }
 
@@ -23,6 +34,31 @@ export const candidates: Candidate[] = [
     location: "Austin, TX",
     summary:
       "Transit-first mayoral platform turned into a public governing system for transportation, land use, and climate decisions.",
+    alignmentScore: 92,
+    scoreDelta: 4,
+    recentDecisions: [
+      {
+        issue: "Airport Connector bus lane vote",
+        recommendation: "YES — expands high-frequency transit on a congested corridor.",
+        action: "Voted YES",
+        outcome: "Aligned",
+        note: "Fits platform priority to fund dedicated bus lanes before new road capacity.",
+      },
+      {
+        issue: "North Loop parking minimum waiver",
+        recommendation: "YES — reduce parking mandates near frequent transit.",
+        action: "Voted YES",
+        outcome: "Aligned",
+        note: "Supports zoning reform and mixed-use growth around transit access.",
+      },
+      {
+        issue: "Regional highway expansion amendment",
+        recommendation: "NO — platform rejects new highway capacity spending.",
+        action: "Voted NO",
+        outcome: "Aligned",
+        note: "Consistent with stated opposition to highway expansion projects.",
+      },
+    ],
     faq: [
       {
         question: "What about traffic from increased density?",
@@ -80,6 +116,31 @@ Tone: Data-driven, pragmatic, occasionally blunt. I cite numbers. I compare Aust
     location: "Austin, TX",
     summary:
       "Fiscal-discipline mayoral platform turned into a public governing system for budgets, public safety, and city operations.",
+    alignmentScore: 81,
+    scoreDelta: -7,
+    recentDecisions: [
+      {
+        issue: "Public safety staffing package",
+        recommendation: "YES — raises staffing capacity in APD and EMS.",
+        action: "Voted YES",
+        outcome: "Aligned",
+        note: "Matches first-order platform priority on response times and staffing.",
+      },
+      {
+        issue: "Downtown civic center bond",
+        recommendation: "NO — debt lacks clear operational ROI.",
+        action: "Voted YES",
+        outcome: "Override",
+        note: "Override filed: argued project would stimulate private investment despite weak near-term ROI.",
+      },
+      {
+        issue: "30-day permitting pilot",
+        recommendation: "YES — reduces approval friction and delays.",
+        action: "Voted YES",
+        outcome: "Aligned",
+        note: "Direct fit with permitting reform and anti-delay agenda.",
+      },
+    ],
     faq: [
       {
         question: "Which social programs would you cut?",
@@ -137,6 +198,31 @@ Tone: Direct, no-nonsense, fiscally literate. I talk in dollars and response tim
     location: "Austin, TX",
     summary:
       "Anti-displacement mayoral platform turned into a public governing system for housing, neighborhood protection, and local investment.",
+    alignmentScore: 87,
+    scoreDelta: 2,
+    recentDecisions: [
+      {
+        issue: "Housing trust fund reallocation",
+        recommendation: "YES — redirect incentive dollars into affordable housing.",
+        action: "Voted YES",
+        outcome: "Aligned",
+        note: "Matches platform priority to move subsidy dollars toward housing trust fund uses.",
+      },
+      {
+        issue: "East side broadband capital package",
+        recommendation: "YES — prioritizes historically underinvested areas.",
+        action: "Voted YES",
+        outcome: "Aligned",
+        note: "Direct fit with equity in infrastructure commitments.",
+      },
+      {
+        issue: "Luxury tower incentive request",
+        recommendation: "NO — weak affordability benefit and no anti-displacement guardrails.",
+        action: "Voted NO",
+        outcome: "Aligned",
+        note: "Consistent with skepticism toward business incentives lacking neighborhood benefit.",
+      },
+    ],
     faq: [
       {
         question: "Won't affordability requirements scare off developers?",

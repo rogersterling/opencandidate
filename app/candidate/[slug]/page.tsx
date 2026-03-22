@@ -127,131 +127,202 @@ export default async function CandidatePage({
         </Link>
       </nav>
 
-      <section className="px-6 md:px-12 lg:px-24 pt-20 pb-16 animate-fade-in">
-        <p className="text-[#d97706] text-sm uppercase tracking-[0.2em] mb-4">
-          {candidate.race} · {candidate.location}
-        </p>
-        <h1 className="font-serif text-5xl md:text-7xl text-[#faf7f2] mb-4">
-          {candidate.name}
-        </h1>
-        <p className="font-serif text-xl md:text-2xl text-[#94a3b8] max-w-2xl italic mb-10">
-          &ldquo;{candidate.tagline}&rdquo;
-        </p>
-        <div className="max-w-5xl border border-[#1e293b] rounded-2xl p-6 md:p-8 bg-[#111827]/40">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
-            Public governing system
-          </p>
-          <div className="grid md:grid-cols-3 gap-6 text-sm leading-relaxed">
-            <div>
-              <p className="text-[#faf7f2] mb-2">Campaign platform</p>
-              <p className="text-[#94a3b8]">
-                {firstName}&apos;s campaign platform has been turned into a public governing system with decision rules the public can inspect.
-              </p>
-            </div>
-            <div>
-              <p className="text-[#faf7f2] mb-2">Major decisions</p>
-              <p className="text-[#94a3b8]">
-                {decisionTypes.length > 0
-                  ? `${firstName} would run ${decisionTypes.join(", ")} through that system before acting.`
-                  : `${firstName} would run major votes, budgets, policy drafts, and constituent issues through that system before acting.`}
-              </p>
-            </div>
-            <div>
-              <p className="text-[#faf7f2] mb-2">Alignment over time</p>
-              <p className="text-[#94a3b8]">
-                {buildAlignmentCopy(candidate.name, priorities)} Overrides belong in the public record.
-              </p>
+      <section className="px-6 md:px-12 lg:px-24 pt-16 pb-14 animate-fade-in">
+        <div className="max-w-6xl grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-start">
+          <div>
+            <p className="text-[#d97706] text-sm uppercase tracking-[0.2em] mb-4">
+              {candidate.race} · {candidate.location}
+            </p>
+            <h1 className="font-serif text-5xl md:text-7xl text-[#faf7f2] mb-4">
+              {candidate.name}
+            </h1>
+            <p className="font-serif text-xl md:text-2xl text-[#94a3b8] max-w-2xl italic mb-8">
+              &ldquo;{candidate.tagline}&rdquo;
+            </p>
+            <p className="text-[#cbd5e1] text-lg leading-relaxed max-w-3xl mb-8">
+              {candidate.summary}
+            </p>
+            <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.22em] text-[#94a3b8]">
+              <span className="rounded-full border border-[#1e293b] px-3 py-2">PLATFORM</span>
+              <span className="rounded-full border border-[#1e293b] px-3 py-2">SYSTEM</span>
+              <span className="rounded-full border border-[#1e293b] px-3 py-2">RECOMMENDATION</span>
+              <span className="rounded-full border border-[#1e293b] px-3 py-2">ACTION</span>
+              <span className="rounded-full border border-[#1e293b] px-3 py-2">SCORE</span>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
-        <div className="max-w-3xl">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
-            Governing principle
-          </p>
-          <blockquote className="font-serif text-3xl md:text-4xl text-[#faf7f2] leading-snug">
-            {parsed.coreValue}
-          </blockquote>
-          <p className="text-[#64748b] text-sm leading-relaxed mt-6 max-w-2xl">
-            This is the core principle the system uses when analyzing bills, drafting recommendations, and explaining tradeoffs for {firstName}.
-          </p>
-        </div>
-      </section>
-
-      <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
-        <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-10">
-          Decision rules
-        </p>
-        <div className="max-w-3xl space-y-8">
-          {priorities.map((p, i) => {
-            const [title, ...rest] = p.split(" — ");
-            return (
-              <div key={i} className="flex gap-6">
-                <span className="text-[#d97706] font-mono text-sm mt-1 shrink-0">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+          <div className="grid gap-4">
+            <div className="rounded-[2rem] border border-[#2b3448] bg-[radial-gradient(circle_at_top,_rgba(217,119,6,0.16),_transparent_45%),_rgba(15,23,42,0.92)] p-6 md:p-7">
+              <div className="flex items-start justify-between gap-4 mb-5">
                 <div>
-                  <h3 className="font-serif text-xl text-[#faf7f2] mb-1">
-                    {title}
-                  </h3>
-                  {rest.length > 0 && (
-                    <p className="text-[#94a3b8] text-sm leading-relaxed">
-                      {rest.join(" — ")}
-                    </p>
-                  )}
+                  <p className="text-[#64748b] text-[11px] uppercase tracking-[0.22em] mb-2">Alignment score</p>
+                  <p className="font-serif text-6xl text-[#faf7f2] leading-none">{candidate.alignmentScore}</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-[#64748b] text-[11px] uppercase tracking-[0.22em] mb-2">30 day change</p>
+                  <p className={`text-sm ${candidate.scoreDelta >= 0 ? "text-emerald-400" : "text-amber-300"}`}>
+                    {candidate.scoreDelta >= 0 ? `+${candidate.scoreDelta}` : candidate.scoreDelta} points
+                  </p>
                 </div>
               </div>
-            );
-          })}
+              <div className="h-3 rounded-full bg-[#1e293b] overflow-hidden mb-4">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-[#d97706] to-[#f59e0b]"
+                  style={{ width: `${candidate.alignmentScore}%` }}
+                />
+              </div>
+              <p className="text-[#94a3b8] text-sm leading-relaxed">
+                Public score tracking whether major actions match the published governing system. Overrides are allowed. Hidden overrides are not.
+              </p>
+            </div>
+
+            <div className="rounded-[2rem] border border-[#223046] bg-[#111827]/50 p-6 md:p-7">
+              <p className="text-[#d97706] text-[11px] uppercase tracking-[0.22em] mb-4">System snapshot</p>
+              <div className="grid sm:grid-cols-3 gap-4 text-sm">
+                <div className="rounded-2xl border border-[#1f2937] bg-[#0f172a]/70 p-4">
+                  <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-2">Platform</p>
+                  <p className="text-[#cbd5e1]">Published priorities and tradeoffs.</p>
+                </div>
+                <div className="rounded-2xl border border-[#1f2937] bg-[#0f172a]/70 p-4">
+                  <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-2">Decision types</p>
+                  <p className="text-[#cbd5e1]">
+                    {decisionTypes.length > 0
+                      ? decisionTypes.join(", ")
+                      : "Major votes, budgets, policy drafts, and constituent issues."}
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-[#1f2937] bg-[#0f172a]/70 p-4">
+                  <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-2">Accountability</p>
+                  <p className="text-[#cbd5e1]">Recommendation, action, explanation, and score all live together.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
-        <div className="max-w-3xl">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
-            Fiscal approach
-          </p>
-          <p className="text-[#cbd5e1] text-lg leading-relaxed">
-            {parsed.fiscal}
-          </p>
-        </div>
-      </section>
-
-      <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
-        <div className="max-w-4xl grid md:grid-cols-2 gap-12">
+      <section className="px-6 md:px-12 lg:px-24 py-14 border-t border-[#1e293b]">
+        <div className="max-w-6xl grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
           <div>
-            <p className="text-emerald-500 text-xs uppercase tracking-[0.2em] mb-6">
-              Tradeoffs accepted
+            <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
+              Recent decisions
             </p>
-            <p className="text-[#cbd5e1] leading-relaxed">
-              {parsed.tradeoffsAccepted}
+            <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-4">
+              Decision dashboard
+            </h2>
+            <p className="text-[#94a3b8] leading-relaxed max-w-xl">
+              A faster way to understand the concept: look at a few actual decisions, compare recommendation to action, then check the score.
             </p>
           </div>
+
+          <div className="grid gap-4">
+            {candidate.recentDecisions.map((decision) => (
+              <div key={decision.issue} className="rounded-[1.5rem] border border-[#223046] bg-[#111827]/45 p-5 md:p-6">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                  <div>
+                    <p className="text-[#64748b] text-[11px] uppercase tracking-[0.2em] mb-2">Issue</p>
+                    <h3 className="font-serif text-2xl text-[#faf7f2]">{decision.issue}</h3>
+                  </div>
+                  <span className={`inline-flex w-fit rounded-full border px-3 py-2 text-[11px] uppercase tracking-[0.18em] ${decision.outcome === "Aligned" ? "border-emerald-500/30 text-emerald-400 bg-emerald-500/10" : "border-amber-500/30 text-amber-300 bg-amber-500/10"}`}>
+                    {decision.outcome}
+                  </span>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4 mb-4">
+                  <div className="rounded-2xl border border-[#1f2937] bg-[#0f172a]/70 p-4">
+                    <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-2">Recommendation</p>
+                    <p className="text-[#faf7f2] text-sm leading-relaxed">{decision.recommendation}</p>
+                  </div>
+                  <div className="rounded-2xl border border-[#1f2937] bg-[#0f172a]/70 p-4">
+                    <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-2">Action</p>
+                    <p className="text-[#cbd5e1] text-sm leading-relaxed">{decision.action}</p>
+                  </div>
+                </div>
+                <div className="rounded-2xl border border-[#1f2937] bg-[#0f172a]/50 p-4">
+                  <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-2">System note</p>
+                  <p className="text-[#94a3b8] text-sm leading-relaxed">{decision.note}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 md:px-12 lg:px-24 py-14 border-t border-[#1e293b]">
+        <div className="max-w-6xl grid lg:grid-cols-[0.85fr_1.15fr] gap-10 items-start">
           <div>
-            <p className="text-red-400 text-xs uppercase tracking-[0.2em] mb-6">
-              Tradeoffs rejected
+            <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
+              Governing principle
             </p>
-            <p className="text-[#cbd5e1] leading-relaxed">
-              {parsed.tradeoffsRejected}
+            <blockquote className="font-serif text-3xl md:text-4xl text-[#faf7f2] leading-snug">
+              {parsed.coreValue}
+            </blockquote>
+            <p className="text-[#64748b] text-sm leading-relaxed mt-6 max-w-2xl">
+              This is the principle the system uses when analyzing bills, drafting recommendations, and explaining tradeoffs for {firstName}.
+            </p>
+          </div>
+
+          <div className="rounded-[2rem] border border-[#223046] bg-[#111827]/40 p-6 md:p-8">
+            <p className="text-[#64748b] text-[11px] uppercase tracking-[0.22em] mb-4">Alignment frame</p>
+            <p className="text-[#cbd5e1] leading-relaxed mb-4">
+              {buildAlignmentCopy(candidate.name, priorities)}
+            </p>
+            <p className="text-[#94a3b8] text-sm leading-relaxed">
+              Overrides belong in the public record so voters can judge them later against the platform that got the candidate elected.
             </p>
           </div>
         </div>
       </section>
 
-      {parsed.tone && (
-        <section className="px-6 md:px-12 lg:px-24 py-8 border-t border-[#1e293b]">
-          <div className="max-w-3xl flex items-center gap-4">
-            <span className="text-[#475569] text-xs uppercase tracking-[0.2em] shrink-0">
-              Public voice
-            </span>
-            <p className="text-[#64748b] text-sm italic">
-              {parsed.tone}
+      <section className="px-6 md:px-12 lg:px-24 py-14 border-t border-[#1e293b]">
+        <div className="max-w-6xl grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-start">
+          <div>
+            <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-8">
+              Platform summary
             </p>
+            <div className="grid gap-4">
+              {priorities.map((p, i) => {
+                const [title, ...rest] = p.split(" — ");
+                return (
+                  <div key={i} className="rounded-[1.5rem] border border-[#223046] bg-[#111827]/35 p-5 md:p-6">
+                    <div className="flex gap-4 items-start">
+                      <span className="text-[#d97706] font-mono text-sm mt-1 shrink-0">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <h3 className="font-serif text-2xl text-[#faf7f2] mb-2">{title}</h3>
+                        {rest.length > 0 && (
+                          <p className="text-[#94a3b8] text-sm leading-relaxed">{rest.join(" — ")}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </section>
-      )}
+
+          <div className="grid gap-4">
+            <div className="rounded-[1.5rem] border border-[#223046] bg-[#111827]/40 p-6">
+              <p className="text-[#d97706] text-[11px] uppercase tracking-[0.2em] mb-4">Fiscal approach</p>
+              <p className="text-[#cbd5e1] text-sm leading-relaxed">{parsed.fiscal}</p>
+            </div>
+            <div className="rounded-[1.5rem] border border-[#223046] bg-[#111827]/40 p-6">
+              <p className="text-emerald-400 text-[11px] uppercase tracking-[0.2em] mb-4">Tradeoffs accepted</p>
+              <p className="text-[#cbd5e1] text-sm leading-relaxed">{parsed.tradeoffsAccepted}</p>
+            </div>
+            <div className="rounded-[1.5rem] border border-[#223046] bg-[#111827]/40 p-6">
+              <p className="text-red-400 text-[11px] uppercase tracking-[0.2em] mb-4">Tradeoffs rejected</p>
+              <p className="text-[#cbd5e1] text-sm leading-relaxed">{parsed.tradeoffsRejected}</p>
+            </div>
+            {parsed.tone && (
+              <div className="rounded-[1.5rem] border border-[#223046] bg-[#111827]/40 p-6">
+                <p className="text-[#64748b] text-[11px] uppercase tracking-[0.2em] mb-4">Public voice</p>
+                <p className="text-[#94a3b8] text-sm italic leading-relaxed">{parsed.tone}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
 
       <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
         <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
@@ -260,9 +331,9 @@ export default async function CandidatePage({
         <h2 className="font-serif text-3xl text-[#faf7f2] mb-12">
           What citizens are asking
         </h2>
-        <div className="max-w-3xl space-y-10">
+        <div className="max-w-4xl grid gap-4">
           {candidate.faq.map((item, i) => (
-            <div key={i} className="border-l-2 border-[#1e293b] pl-6">
+            <div key={i} className="rounded-[1.5rem] border border-[#223046] bg-[#111827]/35 p-6">
               <h3 className="font-serif text-lg text-[#faf7f2] mb-3">
                 {item.question}
               </h3>

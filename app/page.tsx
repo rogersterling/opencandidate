@@ -3,43 +3,73 @@ import CandidateCard from "@/components/CandidateCard";
 import { candidates } from "@/lib/candidates";
 import Link from "next/link";
 
-const systemSections = [
+const systemFlow = [
   {
+    label: "Step 01",
+    eyebrow: "PLATFORM",
     title: "Campaign platform",
-    desc: "The officeholder starts by publishing the platform they ran on in a form that can be applied, inspected, and challenged.",
+    desc: "The candidate publishes a platform with actual priorities, tradeoffs, and constraints.",
   },
   {
-    title: "Decision rules",
-    desc: "The platform gets turned into explicit rules about priorities, tradeoffs, spending, and what counts as a justified exception.",
-  },
-  {
+    label: "Step 02",
+    eyebrow: "SYSTEM",
     title: "Public governing system",
-    desc: "Those rules become a standing system the public can refer to when bills, budgets, and major votes show up.",
+    desc: "That platform becomes a standing decision framework the public can inspect.",
+  },
+  {
+    label: "Step 03",
+    eyebrow: "RECOMMENDATION",
+    title: "AI on a real decision",
+    desc: "Bills, budgets, and votes get run through the framework before action is taken.",
+  },
+  {
+    label: "Step 04",
+    eyebrow: "ACTION + SCORE",
+    title: "Politician acts in public",
+    desc: "The public sees the recommendation, the actual vote, and the alignment score change.",
+  },
+];
+
+const comparisonRows = [
+  {
+    label: "Campaign promises",
+    normal: "Mostly slogans and broad themes.",
+    open: "Published as explicit decision rules and tradeoffs.",
+  },
+  {
+    label: "Decision process",
+    normal: "Internal, improvised, and hard to inspect.",
+    open: "Run through a public system before major action.",
+  },
+  {
+    label: "Influence visibility",
+    normal: "Pressure happens offstage.",
+    open: "Departures show up against the published platform.",
+  },
+  {
+    label: "Overrides",
+    normal: "Often invisible or lightly explained.",
+    open: "Allowed, but recorded with a public reason.",
+  },
+  {
+    label: "Public record",
+    normal: "Votes exist. Logic usually does not.",
+    open: "Recommendation, action, and rationale live together.",
+  },
+  {
+    label: "Accountability",
+    normal: "Memory and vibes.",
+    open: "A visible alignment score over time.",
   },
 ];
 
 const decisionItems = [
   "Bills and ordinances",
-  "Budget drafts and amendments",
+  "Budgets and bond questions",
   "Land use and zoning votes",
-  "Major procurement and contract decisions",
+  "Contract and procurement decisions",
   "Public statements tied to governing choices",
-  "Constituent issues that force real tradeoffs",
-];
-
-const accountabilityItems = [
-  {
-    title: "Recommendation",
-    desc: "The system shows what the platform would call for on a specific decision.",
-  },
-  {
-    title: "Override",
-    desc: "The politician can depart from that recommendation, but the departure becomes part of the public record.",
-  },
-  {
-    title: "Alignment",
-    desc: "Over time the public can see whether the officeholder is governing through the plan or walking away from it.",
-  },
+  "Constituent issues that force tradeoffs",
 ];
 
 export default function Home() {
@@ -58,104 +88,181 @@ export default function Home() {
 
       <Hero />
 
-      <section className="px-6 md:px-12 lg:px-24 py-24 border-t border-[#1e293b]">
-        <div className="max-w-5xl">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
-            What this is
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-8 max-w-3xl">
-            A way to turn campaign promises into a governing system people can actually audit.
-          </h2>
-          <p className="text-[#94a3b8] leading-relaxed max-w-3xl mb-12">
-            OpenCandidate is built for a simple commitment. A candidate publishes the platform they ran on, turns it into decision rules, and governs through those rules in public. AI does the repetitive application work. The politician still holds office.
-          </p>
-          <div className="grid md:grid-cols-3 gap-6">
-            {systemSections.map((item) => (
-              <div key={item.title} className="border border-[#1e293b] rounded-2xl p-6 bg-[#111827]/40">
-                <h3 className="font-serif text-xl text-[#faf7f2] mb-3">{item.title}</h3>
-                <p className="text-[#94a3b8] text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 md:px-12 lg:px-24 py-24 border-t border-[#1e293b]">
-        <div className="max-w-4xl space-y-6">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em]">
-            Why it exists
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] max-w-3xl">
-            Politicians change under pressure. Usually where the public cannot see it.
-          </h2>
-          <p className="text-[#94a3b8] leading-relaxed max-w-3xl">
-            The problem is not that voters lack slogans. The problem is that governing happens after the campaign, under pressure, in private rooms, with incentives the public cannot track in real time.
-          </p>
-          <p className="text-[#94a3b8] leading-relaxed max-w-3xl">
-            OpenCandidate does not assume AI is wise. It assumes that a public governing system is easier to inspect than a human being making exceptions offstage.
-          </p>
-          <p className="text-[#faf7f2] font-serif text-2xl md:text-3xl leading-snug max-w-3xl">
-            A politician can drift in private. A public governing system can only drift in public.
-          </p>
-        </div>
-      </section>
-
-      <section className="px-6 md:px-12 lg:px-24 py-24 border-t border-[#1e293b]">
-        <div className="max-w-5xl">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
-            What runs through it
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-8 max-w-3xl">
-            The system is there for real governing work, not campaign theater.
-          </h2>
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-6 max-w-4xl">
-            {decisionItems.map((item) => (
-              <div key={item} className="border-t border-[#1e293b] pt-4">
-                <p className="text-[#cbd5e1] text-lg">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 md:px-12 lg:px-24 py-24 border-t border-[#1e293b]">
-        <div className="max-w-5xl grid md:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
-          <div>
-            <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
-              Alignment and accountability
+      <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
+        <div className="max-w-6xl">
+          <div className="max-w-3xl mb-10">
+            <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
+              How it works
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-8 max-w-3xl">
-              The public should be able to compare what the system recommended to what the politician actually did.
+            <h2 className="font-serif text-3xl md:text-5xl text-[#faf7f2] mb-4">
+              One public loop from promise to action.
             </h2>
-            <div className="space-y-6">
-              {accountabilityItems.map((item) => (
-                <div key={item.title} className="border-l border-[#1e293b] pl-6">
-                  <h3 className="text-[#faf7f2] text-lg mb-2">{item.title}</h3>
-                  <p className="text-[#94a3b8] text-sm leading-relaxed">{item.desc}</p>
+            <p className="text-[#94a3b8] leading-relaxed text-base md:text-lg">
+              This is not a chatbot for campaigning. It is a visible system for governing.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-4 gap-4 lg:gap-5">
+            {systemFlow.map((item, index) => (
+              <div key={item.title} className="relative rounded-[1.75rem] border border-[#223046] bg-[#111827]/45 p-6 md:p-7 min-h-[220px]">
+                <div className="flex items-center justify-between mb-8">
+                  <p className="text-[#64748b] text-[11px] uppercase tracking-[0.22em]">{item.label}</p>
+                  <p className="text-[#d97706] text-[11px] uppercase tracking-[0.22em]">{item.eyebrow}</p>
+                </div>
+                <h3 className="font-serif text-2xl text-[#faf7f2] mb-3 max-w-[14rem]">{item.title}</h3>
+                <p className="text-[#94a3b8] text-sm leading-relaxed max-w-[15rem]">{item.desc}</p>
+                {index < systemFlow.length - 1 && (
+                  <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 h-6 w-6 items-center justify-center rounded-full border border-[#344256] bg-[#0f172a] text-[#d97706]">
+                    →
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
+        <div className="max-w-6xl grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-start">
+          <div>
+            <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
+              Worked example
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-4">
+              What this looks like on a real vote.
+            </h2>
+            <p className="text-[#94a3b8] leading-relaxed max-w-xl">
+              The point is not that AI decides. The point is that the public can compare what the platform implied to what the politician actually did.
+            </p>
+          </div>
+
+          <div className="rounded-[2rem] border border-[#2b3448] bg-[radial-gradient(circle_at_top_right,_rgba(217,119,6,0.14),_transparent_35%),_rgba(15,23,42,0.88)] p-6 md:p-8 shadow-[0_0_50px_rgba(15,23,42,0.4)]">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 border-b border-[#243041] pb-6 mb-6">
+              <div>
+                <p className="text-[#64748b] text-[11px] uppercase tracking-[0.22em] mb-2">Example case</p>
+                <h3 className="font-serif text-3xl text-[#faf7f2]">Stadium bond vote</h3>
+              </div>
+              <div className="md:text-right">
+                <p className="text-[#64748b] text-[11px] uppercase tracking-[0.22em] mb-2">Score impact</p>
+                <p className="font-serif text-4xl text-[#faf7f2]">91 → 78</p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4 mb-5">
+              <div className="rounded-2xl border border-[#223046] bg-[#0f172a]/75 p-5">
+                <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-3">PLATFORM</p>
+                <p className="text-[#cbd5e1] text-sm leading-relaxed">No major debt without clear public ROI.</p>
+              </div>
+              <div className="rounded-2xl border border-[#223046] bg-[#0f172a]/75 p-5">
+                <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-3">RECOMMENDATION</p>
+                <p className="text-[#faf7f2] text-sm leading-relaxed">Vote NO. Projected upside is speculative and fiscal exposure is real.</p>
+              </div>
+              <div className="rounded-2xl border border-[#223046] bg-[#0f172a]/75 p-5">
+                <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-3">ACTION</p>
+                <p className="text-amber-300 text-sm leading-relaxed">Politician voted YES.</p>
+              </div>
+              <div className="rounded-2xl border border-[#223046] bg-[#0f172a]/75 p-5">
+                <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-3">OVERRIDE NOTE</p>
+                <p className="text-[#94a3b8] text-sm leading-relaxed">I believed the economic upside justified the exception.</p>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-[#3b2a10] bg-[#1a140a]/60 p-5">
+              <p className="text-[#fbbf24] text-[11px] uppercase tracking-[0.18em] mb-2">Why it matters</p>
+              <p className="text-[#f8e7c1] text-sm leading-relaxed">
+                The override might be reasonable. Fine. The important thing is that it is visible, explained, and scored against the published platform.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
+        <div className="max-w-6xl grid lg:grid-cols-[0.92fr_1.08fr] gap-10 items-start">
+          <div>
+            <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
+              Why it exists
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-4">
+              Politicians change under pressure. Usually where the public cannot see it.
+            </h2>
+            <p className="text-[#94a3b8] leading-relaxed mb-4 max-w-xl">
+              Governing happens after the campaign, under time pressure, inside negotiations, and around incentives voters never get to inspect in real time.
+            </p>
+            <p className="text-[#94a3b8] leading-relaxed max-w-xl">
+              OpenCandidate makes the drift legible. It does not assume software is wise. It assumes a public system is easier to audit than a private excuse.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {decisionItems.map((item) => (
+              <div key={item} className="rounded-2xl border border-[#1e293b] bg-[#111827]/35 p-5">
+                <p className="text-[#64748b] text-[11px] uppercase tracking-[0.2em] mb-3">Runs through system</p>
+                <p className="text-[#cbd5e1] text-base leading-snug">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
+        <div className="max-w-6xl">
+          <div className="max-w-3xl mb-10">
+            <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
+              Comparison
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-4">
+              Normal politician versus OpenCandidate.
+            </h2>
+            <p className="text-[#94a3b8] leading-relaxed">
+              Same office. Different visibility.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-[1.75rem] border border-[#223046] bg-[#111827]/40">
+            <div className="hidden md:grid grid-cols-[220px_1fr_1fr] border-b border-[#223046] bg-[#0f172a]/80">
+              <div className="p-5 text-[#64748b] text-[11px] uppercase tracking-[0.22em]">Measure</div>
+              <div className="p-5 text-[#cbd5e1] text-sm uppercase tracking-[0.2em]">Normal politician</div>
+              <div className="p-5 text-[#f8e7c1] text-sm uppercase tracking-[0.2em]">OpenCandidate</div>
+            </div>
+
+            <div className="md:hidden grid gap-4 p-4">
+              {comparisonRows.map((row) => (
+                <div key={row.label} className="rounded-2xl border border-[#223046] bg-[#0f172a]/70 p-5">
+                  <p className="text-[#64748b] text-[11px] uppercase tracking-[0.2em] mb-3">{row.label}</p>
+                  <div className="space-y-3 text-sm">
+                    <div>
+                      <p className="text-[#94a3b8] uppercase tracking-[0.18em] text-[11px] mb-1">Normal politician</p>
+                      <p className="text-[#cbd5e1] leading-relaxed">{row.normal}</p>
+                    </div>
+                    <div>
+                      <p className="text-[#d97706] uppercase tracking-[0.18em] text-[11px] mb-1">OpenCandidate</p>
+                      <p className="text-[#faf7f2] leading-relaxed">{row.open}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="hidden md:block">
+              {comparisonRows.map((row, index) => (
+                <div key={row.label} className={`grid grid-cols-[220px_1fr_1fr] ${index !== comparisonRows.length - 1 ? "border-b border-[#223046]" : ""}`}>
+                  <div className="p-5 text-[#94a3b8] text-sm">{row.label}</div>
+                  <div className="p-5 text-[#cbd5e1] text-sm leading-relaxed border-l border-[#223046]">{row.normal}</div>
+                  <div className="p-5 text-[#faf7f2] text-sm leading-relaxed border-l border-[#223046] bg-[#1a140a]/25">{row.open}</div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="border border-[#1e293b] rounded-2xl p-6 md:p-8 bg-[#111827]/40">
-            <p className="text-[#faf7f2] font-serif text-2xl leading-snug mb-4">
-              Not every override is bad. Hidden overrides are.
-            </p>
-            <p className="text-[#94a3b8] text-sm leading-relaxed mb-4">
-              Emergencies happen. Facts change. Coalitions shift. The point is not blind obedience to software.
-            </p>
-            <p className="text-[#94a3b8] text-sm leading-relaxed">
-              The point is that when a politician steps outside the published plan, the public should be able to see it, judge it, and remember it.
-            </p>
-          </div>
         </div>
       </section>
 
-      <section className="px-6 md:px-12 lg:px-24 py-24 border-t border-[#1e293b]">
+      <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
         <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-4">
           Demo candidates
         </h2>
         <p className="text-[#64748b] text-sm mb-12 max-w-2xl">
-          Three fictional Austin candidates. Three different campaign platforms turned into three different public governing systems.
+          Three fictional Austin candidates. Three different published platforms. Three different public accountability loops.
         </p>
         <div>
           {candidates.map((c) => (
@@ -169,7 +276,7 @@ export default function Home() {
           Turn a campaign platform into a public governing system.
         </h2>
         <p className="text-[#94a3b8] max-w-2xl mx-auto leading-relaxed mb-10">
-          Define the platform. Write the decision rules. Make alignment visible.
+          Define the platform. Publish the rules. Show the recommendation. Record the action. Keep score.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
