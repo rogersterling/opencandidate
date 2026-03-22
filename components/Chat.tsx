@@ -34,11 +34,9 @@ export default function Chat({
     }
   }, [messages]);
 
-  // Handle initial question from PopularQuestions click
   useEffect(() => {
     if (initialQuestion && !isLoading) {
       sendMessage({ text: initialQuestion });
-      // Fire and forget: store the question
       fetch("/api/questions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -55,7 +53,6 @@ export default function Chat({
     const question = input.trim();
     sendMessage({ text: question });
     setInput("");
-    // Fire and forget: store the question
     fetch("/api/questions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -64,10 +61,10 @@ export default function Chat({
   };
 
   return (
-    <div className="flex flex-col h-[600px]">
-      <div ref={scrollRef} className="flex-1 overflow-y-auto space-y-6 pb-4">
+    <div className="flex h-[560px] flex-col rounded-[24px] border border-[#223046] bg-[#111827]/22 p-4 sm:p-5 md:h-[600px] md:p-6">
+      <div ref={scrollRef} className="flex-1 space-y-6 overflow-y-auto pb-4">
         {messages.length === 0 && (
-          <p className="text-[#94a3b8] italic text-center pt-12">
+          <p className="pt-12 text-center italic text-[#94a3b8]">
             Ask this candidate anything about their positions, priorities, or
             how they&apos;d handle a specific issue.
           </p>
@@ -78,7 +75,7 @@ export default function Chat({
             className={`${m.role === "user" ? "text-right" : "text-left"}`}
           >
             <div
-              className={`inline-block max-w-[80%] px-4 py-3 rounded-lg text-sm leading-relaxed ${
+              className={`inline-block max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-relaxed sm:max-w-[80%] ${
                 m.role === "user"
                   ? "bg-[#d97706] text-white"
                   : "bg-[#1e293b] text-[#e2e8f0]"
@@ -97,7 +94,7 @@ export default function Chat({
           messages.length > 0 &&
           messages[messages.length - 1]?.role === "user" && (
             <div className="text-left">
-              <div className="inline-block px-4 py-3 rounded-lg bg-[#1e293b] text-[#94a3b8] text-sm">
+              <div className="inline-block rounded-2xl bg-[#1e293b] px-4 py-3 text-sm text-[#94a3b8]">
                 Thinking...
               </div>
             </div>
@@ -106,18 +103,18 @@ export default function Chat({
 
       <form
         onSubmit={handleSubmit}
-        className="flex gap-3 pt-4 border-t border-[#1e293b]"
+        className="mt-4 grid gap-3 border-t border-[#1e293b] pt-4 sm:grid-cols-[minmax(0,1fr)_auto]"
       >
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask a question..."
-          className="flex-1 bg-[#1e293b] text-[#e2e8f0] placeholder-[#64748b] px-4 py-3 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-[#d97706]"
+          className="min-w-0 rounded-xl bg-[#1e293b] px-4 py-3 text-sm text-[#e2e8f0] placeholder-[#64748b] focus:outline-none focus:ring-1 focus:ring-[#d97706]"
         />
         <button
           type="submit"
           disabled={isLoading || !input.trim()}
-          className="px-6 py-3 bg-[#d97706] text-white rounded-lg text-sm font-medium hover:bg-[#b45309] disabled:opacity-40 transition-colors"
+          className="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#d97706] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#b45309] disabled:opacity-40"
         >
           Send
         </button>

@@ -43,7 +43,7 @@ export default function PopularQuestions({
           <button
             key={i}
             onClick={() => onQuestionClick(q)}
-            className="text-left text-sm px-3 py-2 rounded-lg bg-[#1e293b] text-[#94a3b8] hover:text-[#faf7f2] hover:bg-[#334155] transition-colors"
+            className="rounded-xl bg-[#1e293b] px-3 py-2 text-left text-sm leading-6 text-[#94a3b8] transition-colors hover:bg-[#334155] hover:text-[#faf7f2]"
           >
             {q}
           </button>
