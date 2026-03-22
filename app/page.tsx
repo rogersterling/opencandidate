@@ -122,8 +122,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
-        <div className="mx-auto max-w-7xl grid lg:grid-cols-[0.92fr_1.08fr] gap-12 xl:gap-16 items-start">
+      <section className="px-6 py-20 md:px-12 lg:px-24 border-t border-[#1e293b]">
+        <div className="mx-auto grid max-w-7xl items-start gap-16 lg:grid-cols-[0.9fr_1.1fr] xl:gap-20">
           <div className="max-w-xl">
             <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
               Worked example
@@ -136,8 +136,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-[#253247] bg-[linear-gradient(180deg,rgba(250,247,242,0.03),rgba(17,24,39,0.56)),radial-gradient(circle_at_top_right,rgba(217,119,6,0.15),transparent_34%)] p-6 md:p-8 shadow-[0_20px_70px_rgba(2,6,23,0.26)]">
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 border-b border-[#243041] pb-6 mb-6">
+          <div className="rounded-[2rem] border border-[#253247] bg-[linear-gradient(180deg,rgba(250,247,242,0.03),rgba(17,24,39,0.56)),radial-gradient(circle_at_top_right,rgba(217,119,6,0.15),transparent_34%)] p-6 shadow-[0_20px_70px_rgba(2,6,23,0.26)] md:p-8">
+            <div className="flex flex-col gap-6 border-b border-[#243041] pb-6 md:flex-row md:items-start md:justify-between">
               <div>
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.22em] mb-2">Example case</p>
                 <h3 className="font-serif text-3xl text-[#faf7f2]">Stadium bond vote</h3>
@@ -148,26 +148,26 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-3 mb-5">
-              <div className="rounded-[1.35rem] border border-[#223046] bg-[#0f172a]/62 p-5">
+            <div className="mb-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-[1.5rem] border border-[#223046] bg-[#0f172a]/62 p-6">
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-3">PLATFORM</p>
                 <p className="text-[#cbd5e1] text-sm leading-relaxed">No major debt without clear public ROI.</p>
               </div>
-              <div className="rounded-[1.35rem] border border-[#223046] bg-[#0f172a]/62 p-5">
+              <div className="rounded-[1.5rem] border border-[#223046] bg-[#0f172a]/62 p-6">
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-3">RECOMMENDATION</p>
                 <p className="text-[#faf7f2] text-sm leading-relaxed">Vote NO. Projected upside is speculative and fiscal exposure is real.</p>
               </div>
-              <div className="rounded-[1.35rem] border border-[#223046] bg-[#0f172a]/62 p-5">
+              <div className="rounded-[1.5rem] border border-[#223046] bg-[#0f172a]/62 p-6">
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-3">ACTION</p>
                 <p className="text-amber-300 text-sm leading-relaxed">Politician voted YES.</p>
               </div>
-              <div className="rounded-[1.35rem] border border-[#223046] bg-[#0f172a]/62 p-5">
+              <div className="rounded-[1.5rem] border border-[#223046] bg-[#0f172a]/62 p-6">
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-3">OVERRIDE NOTE</p>
                 <p className="text-[#94a3b8] text-sm leading-relaxed">I believed the economic upside justified the exception.</p>
               </div>
             </div>
 
-            <div className="rounded-[1.35rem] border border-[#3b2a10] bg-[#1a140a]/48 p-5">
+            <div className="rounded-[1.5rem] border border-[#3b2a10] bg-[#1a140a]/48 p-6">
               <p className="text-[#fbbf24] text-[11px] uppercase tracking-[0.18em] mb-2">Why it matters</p>
               <p className="text-[#f8e7c1] text-sm leading-relaxed">
                 The override might be reasonable. Fine. The important thing is that it is visible, explained, and scored against the published platform.
@@ -177,8 +177,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
-        <div className="mx-auto max-w-7xl grid lg:grid-cols-[0.92fr_1.08fr] gap-12 xl:gap-16 items-start">
+      <section className="px-6 py-20 md:px-12 lg:px-24 border-t border-[#1e293b]">
+        <div className="mx-auto grid max-w-7xl items-start gap-16 lg:grid-cols-[0.9fr_1.1fr] xl:gap-20">
           <div>
             <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
               Why it exists
@@ -194,9 +194,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid gap-4 sm:grid-cols-2">
             {decisionItems.map((item) => (
-              <div key={item} className="rounded-[1.35rem] border border-[#1e293b] bg-[#111827]/26 p-5">
+              <div key={item} className="rounded-[1.5rem] border border-[#1e293b] bg-[#111827]/26 p-6">
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.2em] mb-3">Runs through system</p>
                 <p className="text-[#cbd5e1] text-base leading-snug">{item}</p>
               </div>

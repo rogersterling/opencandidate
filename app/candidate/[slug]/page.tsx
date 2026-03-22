@@ -127,8 +127,8 @@ export default async function CandidatePage({
         </Link>
       </nav>
 
-      <section className="px-6 md:px-12 lg:px-24 pt-16 pb-16 animate-fade-in">
-        <div className="mx-auto max-w-7xl grid lg:grid-cols-[minmax(0,1.02fr)_320px] gap-12 xl:gap-16 items-start">
+      <section className="px-6 pt-16 pb-16 md:px-12 lg:px-24 animate-fade-in">
+        <div className="mx-auto grid max-w-7xl items-start gap-16 lg:grid-cols-[minmax(0,0.98fr)_336px] xl:gap-20">
           <div className="max-w-4xl">
             <p className="text-[#d97706] text-sm uppercase tracking-[0.2em] mb-4">
               {candidate.race} · {candidate.location}
@@ -143,7 +143,7 @@ export default async function CandidatePage({
               {candidate.summary}
             </p>
 
-            <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-8 pt-8 border-t border-[#1e293b]">
+            <div className="grid gap-8 border-t border-[#1e293b] pt-8 md:grid-cols-[1.2fr_0.8fr]">
               <div>
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.22em] mb-3">Governing principle</p>
                 <blockquote className="font-serif text-3xl md:text-4xl text-[#faf7f2] leading-snug max-w-2xl">
@@ -170,7 +170,7 @@ export default async function CandidatePage({
           </div>
 
           <aside className="lg:pt-2">
-            <div className="rounded-[2rem] border border-[#253247] bg-[linear-gradient(180deg,rgba(250,247,242,0.03),rgba(17,24,39,0.58)),radial-gradient(circle_at_top_right,rgba(217,119,6,0.16),transparent_40%)] p-6 md:p-7 sticky top-8">
+            <div className="sticky top-8 rounded-[2rem] border border-[#253247] bg-[linear-gradient(180deg,rgba(250,247,242,0.03),rgba(17,24,39,0.58)),radial-gradient(circle_at_top_right,rgba(217,119,6,0.16),transparent_40%)] p-6 md:p-8">
               <p className="text-[#64748b] text-[11px] uppercase tracking-[0.22em] mb-3">Alignment score</p>
               <p className="font-serif text-7xl text-[#faf7f2] leading-none mb-3">{candidate.alignmentScore}</p>
               <p className={`text-sm mb-5 ${candidate.scoreDelta >= 0 ? "text-emerald-400" : "text-amber-300"}`}>
