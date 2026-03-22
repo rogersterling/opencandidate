@@ -74,6 +74,34 @@ function parsePriorities(text: string): string[] {
     .filter(Boolean);
 }
 
+function inferDecisionTypes(priorities: string[]) {
+  const joined = priorities.join(" ").toLowerCase();
+  const items: string[] = [];
+
+  if (joined.includes("transit") || joined.includes("bike") || joined.includes("pedestrian")) {
+    items.push("transportation plans, transit funding, and street design votes");
+  }
+  if (joined.includes("zoning") || joined.includes("housing") || joined.includes("development")) {
+    items.push("zoning cases, housing policy, and development approvals");
+  }
+  if (joined.includes("fiscal") || joined.includes("budget") || joined.includes("tax") || joined.includes("debt")) {
+    items.push("budget allocations, tax questions, and bond proposals");
+  }
+  if (joined.includes("police") || joined.includes("safety") || joined.includes("homelessness") || joined.includes("ems")) {
+    items.push("public safety funding, homelessness policy, and service delivery decisions");
+  }
+  if (joined.includes("community") || joined.includes("equity") || joined.includes("business") || joined.includes("infrastructure")) {
+    items.push("community investment, infrastructure priorities, and constituent casework");
+  }
+
+  return items.slice(0, 3);
+}
+
+function buildAlignmentCopy(candidateName: string, priorities: string[]) {
+  const primary = priorities[0]?.split(" — ")[0].toLowerCase() || "published priorities";
+  return `${candidateName.split(" ")[0]}'s alignment score would track whether major votes and public actions stay consistent with ${primary}, the rest of the published priority stack, and the tradeoffs laid out in the driving prompt.`;
+}
+
 export default async function CandidatePage({
   params,
 }: {
@@ -85,6 +113,8 @@ export default async function CandidatePage({
 
   const parsed = parseCivicPrompt(candidate.civicPrompt);
   const priorities = parsed.priorities ? parsePriorities(parsed.priorities) : [];
+  const decisionTypes = inferDecisionTypes(priorities);
+  const firstName = candidate.name.split(" ")[0];
 
   return (
     <main className="min-h-screen">
@@ -97,7 +127,6 @@ export default async function CandidatePage({
         </Link>
       </nav>
 
-      {/* Hero */}
       <section className="px-6 md:px-12 lg:px-24 pt-20 pb-16 animate-fade-in">
         <p className="text-[#d97706] text-sm uppercase tracking-[0.2em] mb-4">
           {candidate.race} · {candidate.location}
@@ -105,27 +134,55 @@ export default async function CandidatePage({
         <h1 className="font-serif text-5xl md:text-7xl text-[#faf7f2] mb-4">
           {candidate.name}
         </h1>
-        <p className="font-serif text-xl md:text-2xl text-[#94a3b8] max-w-2xl italic">
+        <p className="font-serif text-xl md:text-2xl text-[#94a3b8] max-w-2xl italic mb-10">
           &ldquo;{candidate.tagline}&rdquo;
         </p>
+        <div className="max-w-4xl border border-[#1e293b] rounded-2xl p-6 md:p-8 bg-[#111827]/40">
+          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
+            How OpenCandidate works for this candidate
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 text-sm leading-relaxed">
+            <div>
+              <p className="text-[#faf7f2] mb-2">What the driving prompt is for</p>
+              <p className="text-[#94a3b8]">
+                {firstName}&apos;s driving prompt is the public decision framework meant to guide major governing choices, not just campaign messaging.
+              </p>
+            </div>
+            <div>
+              <p className="text-[#faf7f2] mb-2">What runs through it</p>
+              <p className="text-[#94a3b8]">
+                {decisionTypes.length > 0
+                  ? `${firstName} would run ${decisionTypes.join(", ")} through the prompt before acting.`
+                  : `${firstName} would run major votes, policy drafts, budgets, and constituent issues through the prompt before acting.`}
+              </p>
+            </div>
+            <div>
+              <p className="text-[#faf7f2] mb-2">How alignment is measured</p>
+              <p className="text-[#94a3b8]">
+                {buildAlignmentCopy(candidate.name, priorities)} Overrides are allowed, but unexplained ones should reduce alignment.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* Core Value */}
       <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
         <div className="max-w-3xl">
           <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
-            Core Value
+            Driving Prompt
           </p>
           <blockquote className="font-serif text-3xl md:text-4xl text-[#faf7f2] leading-snug">
             {parsed.coreValue}
           </blockquote>
+          <p className="text-[#64748b] text-sm leading-relaxed mt-6 max-w-2xl">
+            This is the north star the AI uses when analyzing bills, drafting policy, recommending votes, and explaining tradeoffs for {firstName}.
+          </p>
         </div>
       </section>
 
-      {/* Priorities */}
       <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
         <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-10">
-          Priorities
+          Priority Stack
         </p>
         <div className="max-w-3xl space-y-8">
           {priorities.map((p, i) => {
@@ -151,7 +208,6 @@ export default async function CandidatePage({
         </div>
       </section>
 
-      {/* Fiscal Approach */}
       <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
         <div className="max-w-3xl">
           <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
@@ -163,7 +219,6 @@ export default async function CandidatePage({
         </div>
       </section>
 
-      {/* Tradeoffs */}
       <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
         <div className="max-w-4xl grid md:grid-cols-2 gap-12">
           <div>
@@ -185,7 +240,6 @@ export default async function CandidatePage({
         </div>
       </section>
 
-      {/* Tone */}
       {parsed.tone && (
         <section className="px-6 md:px-12 lg:px-24 py-8 border-t border-[#1e293b]">
           <div className="max-w-3xl flex items-center gap-4">
@@ -199,7 +253,6 @@ export default async function CandidatePage({
         </section>
       )}
 
-      {/* FAQ */}
       <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
         <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
           Top Questions
@@ -221,16 +274,15 @@ export default async function CandidatePage({
         </div>
       </section>
 
-      {/* Chat */}
       <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
         <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
           Live AI Advisor
         </p>
         <h2 className="font-serif text-3xl text-[#faf7f2] mb-4">
-          Ask {candidate.name.split(" ")[0]} anything
+          Ask {firstName} anything
         </h2>
         <p className="text-[#64748b] text-sm mb-8 max-w-xl">
-          This AI reasons from the civic prompt above. Its answers, its biases, and its reasoning are all public. Push it on edge cases.
+          This AI reasons from the driving prompt above. It is there to show how the candidate&apos;s stated priorities would apply to hard choices in public.
         </p>
         <div className="max-w-2xl">
           <ChatWithQuestions candidateSlug={candidate.slug} fallbackFaqs={candidate.faq} />
@@ -238,7 +290,7 @@ export default async function CandidatePage({
       </section>
 
       <footer className="px-6 md:px-12 lg:px-24 py-12 border-t border-[#1e293b] text-[#475569] text-xs">
-        OpenCandidate is an open platform for candidates who believe governance should be transparent. Not a product. Not a party. A standard.
+        OpenCandidate is an open platform for candidates who believe political accountability should be easier to inspect. Not a party. Not a campaign slogan. A standard.
       </footer>
     </main>
   );

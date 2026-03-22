@@ -15,18 +15,18 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "OpenCandidate — Every politician has a hidden prompt. Make it readable.",
+  title: "OpenCandidate — Make politicians run decisions through the plan they campaigned on.",
   description:
-    "An open platform where political candidates publish their values as code, use AI to draft policy, and show their reasoning on every decision.",
+    "OpenCandidate lets candidates publish a driving prompt, use AI to apply it to bills, budgets, and policy questions, and get scored on how closely they stick to it.",
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
   },
   metadataBase: new URL("https://opencandidate.org"),
   openGraph: {
-    title: "OpenCandidate — Every politician has a hidden prompt. Make it readable.",
+    title: "OpenCandidate — Make politicians run decisions through the plan they campaigned on.",
     description:
-      "An open platform where political candidates publish their values as code, use AI to draft policy, and show their reasoning on every decision.",
+      "OpenCandidate lets candidates publish a driving prompt, use AI to apply it to bills, budgets, and policy questions, and get scored on how closely they stick to it.",
     url: "https://opencandidate.org",
     siteName: "OpenCandidate",
     type: "website",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OpenCandidate — Every politician has a hidden prompt. Make it readable.",
+    title: "OpenCandidate — Make politicians run decisions through the plan they campaigned on.",
     description:
-      "An open platform where political candidates publish their values as code, use AI to draft policy, and show their reasoning on every decision.",
+      "OpenCandidate lets candidates publish a driving prompt, use AI to apply it to bills, budgets, and policy questions, and get scored on how closely they stick to it.",
     images: ["/api/og"],
   },
   other: {
