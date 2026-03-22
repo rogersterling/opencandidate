@@ -99,7 +99,7 @@ function inferDecisionTypes(priorities: string[]) {
 
 function buildAlignmentCopy(candidateName: string, priorities: string[]) {
   const primary = priorities[0]?.split(" — ")[0].toLowerCase() || "published priorities";
-  return `${candidateName.split(" ")[0]}'s alignment score would track whether major votes and public actions stay consistent with ${primary}, the rest of the published priority stack, and the tradeoffs laid out in the driving prompt.`;
+  return `${candidateName.split(" ")[0]}'s public score tracks whether major votes and public actions stay consistent with ${primary}, the rest of the published priority stack, and the tradeoffs laid out in the public decision model.`;
 }
 
 export default async function CandidatePage({
@@ -143,23 +143,23 @@ export default async function CandidatePage({
           </p>
           <div className="grid md:grid-cols-3 gap-6 text-sm leading-relaxed">
             <div>
-              <p className="text-[#faf7f2] mb-2">What the driving prompt is for</p>
+              <p className="text-[#faf7f2] mb-2">What the public decision model is for</p>
               <p className="text-[#94a3b8]">
-                {firstName}&apos;s driving prompt is the public decision framework meant to guide major governing choices, not just campaign messaging.
+                {firstName}&apos;s public decision model turns campaign promises into explicit decision rules for major governing choices, not just campaign messaging.
               </p>
             </div>
             <div>
               <p className="text-[#faf7f2] mb-2">What runs through it</p>
               <p className="text-[#94a3b8]">
                 {decisionTypes.length > 0
-                  ? `${firstName} would run ${decisionTypes.join(", ")} through the prompt before acting.`
-                  : `${firstName} would run major votes, policy drafts, budgets, and constituent issues through the prompt before acting.`}
+                  ? `${firstName} would run ${decisionTypes.join(", ")} through the model before acting.`
+                  : `${firstName} would run major votes, policy drafts, budgets, and constituent issues through the model before acting.`}
               </p>
             </div>
             <div>
               <p className="text-[#faf7f2] mb-2">How alignment is measured</p>
               <p className="text-[#94a3b8]">
-                {buildAlignmentCopy(candidate.name, priorities)} Overrides are allowed, but unexplained ones should reduce alignment.
+                {buildAlignmentCopy(candidate.name, priorities)} Not every override is bad. Hidden overrides are.
               </p>
             </div>
           </div>
@@ -169,7 +169,7 @@ export default async function CandidatePage({
       <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
         <div className="max-w-3xl">
           <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
-            Driving Prompt
+            Public Decision Model
           </p>
           <blockquote className="font-serif text-3xl md:text-4xl text-[#faf7f2] leading-snug">
             {parsed.coreValue}
@@ -282,7 +282,7 @@ export default async function CandidatePage({
           Ask {firstName} anything
         </h2>
         <p className="text-[#64748b] text-sm mb-8 max-w-xl">
-          This AI reasons from the driving prompt above. It is there to show how the candidate&apos;s stated priorities would apply to hard choices in public.
+          This AI reasons from the public decision model above. It is there to show how the candidate&apos;s stated priorities would apply to hard choices in public.
         </p>
         <div className="max-w-2xl">
           <ChatWithQuestions candidateSlug={candidate.slug} fallbackFaqs={candidate.faq} />

@@ -15,18 +15,18 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "OpenCandidate — Make politicians run decisions through the plan they campaigned on.",
+  title: "OpenCandidate — Hold politicians to the platform they ran on.",
   description:
-    "OpenCandidate lets candidates publish a driving prompt, use AI to apply it to bills, budgets, and policy questions, and get scored on how closely they stick to it.",
+    "OpenCandidate turns a campaign platform into a public decision model that can analyze bills, draft policy, and score whether a politician is sticking to the plan.",
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
   },
   metadataBase: new URL("https://opencandidate.org"),
   openGraph: {
-    title: "OpenCandidate — Make politicians run decisions through the plan they campaigned on.",
+    title: "OpenCandidate — Hold politicians to the platform they ran on.",
     description:
-      "OpenCandidate lets candidates publish a driving prompt, use AI to apply it to bills, budgets, and policy questions, and get scored on how closely they stick to it.",
+      "OpenCandidate turns a campaign platform into a public decision model that can analyze bills, draft policy, and score whether a politician is sticking to the plan.",
     url: "https://opencandidate.org",
     siteName: "OpenCandidate",
     type: "website",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OpenCandidate — Make politicians run decisions through the plan they campaigned on.",
+    title: "OpenCandidate — Hold politicians to the platform they ran on.",
     description:
-      "OpenCandidate lets candidates publish a driving prompt, use AI to apply it to bills, budgets, and policy questions, and get scored on how closely they stick to it.",
+      "OpenCandidate turns a campaign platform into a public decision model that can analyze bills, draft policy, and score whether a politician is sticking to the plan.",
     images: ["/api/og"],
   },
   other: {
