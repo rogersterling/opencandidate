@@ -7,58 +7,49 @@ export default function CandidateCard({ candidate }: { candidate: Candidate }) {
   return (
     <Link
       href={`/candidate/${candidate.slug}`}
-      className="group block py-8 border-b border-[#1e293b] last:border-b-0 transition-all duration-300 hover:translate-x-1"
+      className="group block py-10 border-b border-[#1e293b] last:border-b-0 transition-all duration-300 hover:translate-x-1"
     >
-      <div className="grid lg:grid-cols-[1fr_280px] gap-6 items-start">
-        <div>
-          <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-3">
-            <h3 className="font-serif text-2xl md:text-3xl text-[#faf7f2] group-hover:text-[#d97706] transition-colors">
-              {candidate.name}
-            </h3>
-            <span className="text-xs text-[#64748b] uppercase tracking-widest">
+      <div className="grid lg:grid-cols-[minmax(0,1fr)_220px] gap-8 lg:gap-10 items-start">
+        <div className="max-w-3xl">
+          <div className="flex flex-col gap-3 mb-4">
+            <span className="text-xs text-[#64748b] uppercase tracking-[0.22em]">
               {candidate.race} · {candidate.location}
             </span>
+            <h3 className="font-serif text-3xl md:text-[2.2rem] text-[#faf7f2] group-hover:text-[#d97706] transition-colors">
+              {candidate.name}
+            </h3>
           </div>
-          <p className="text-[#d97706] text-sm font-medium mb-3">
+          <p className="text-[#d97706] text-sm font-medium mb-4">
             &ldquo;{candidate.tagline}&rdquo;
           </p>
-          <p className="text-[#94a3b8] text-sm leading-relaxed max-w-2xl mb-4">
+          <p className="text-[#94a3b8] text-sm leading-relaxed max-w-2xl mb-5">
             {candidate.summary}
           </p>
           {latestDecision && (
-            <div className="rounded-2xl border border-[#1e293b] bg-[#111827]/40 px-4 py-3 max-w-2xl">
-              <p className="text-[#64748b] text-[11px] uppercase tracking-[0.2em] mb-2">
-                Recent decision
-              </p>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                <p className="text-[#faf7f2] text-sm">{latestDecision.issue}</p>
-                <span className={`text-xs uppercase tracking-[0.18em] ${latestDecision.outcome === "Aligned" ? "text-emerald-400" : "text-amber-300"}`}>
-                  {latestDecision.outcome}
-                </span>
-              </div>
+            <div className="flex flex-col md:flex-row md:items-center gap-3 text-sm border-t border-[#1e293b] pt-5 max-w-2xl">
+              <p className="text-[#64748b] uppercase tracking-[0.18em] text-[11px] shrink-0">Latest decision</p>
+              <p className="text-[#cbd5e1] flex-1">{latestDecision.issue}</p>
+              <span className={`text-[11px] uppercase tracking-[0.18em] ${latestDecision.outcome === "Aligned" ? "text-emerald-400" : "text-amber-300"}`}>
+                {latestDecision.outcome}
+              </span>
             </div>
           )}
         </div>
 
-        <div className="rounded-2xl border border-[#253247] bg-[#0f172a]/70 p-5">
-          <p className="text-[#64748b] text-[11px] uppercase tracking-[0.2em] mb-2">
+        <div className="lg:text-right lg:pt-1">
+          <p className="text-[#64748b] text-[11px] uppercase tracking-[0.22em] mb-2">
             Alignment score
           </p>
-          <div className="flex items-end justify-between gap-4 mb-4">
-            <p className="font-serif text-5xl text-[#faf7f2] leading-none">{candidate.alignmentScore}</p>
-            <p className={`text-sm ${candidate.scoreDelta >= 0 ? "text-emerald-400" : "text-amber-300"}`}>
-              {candidate.scoreDelta >= 0 ? `+${candidate.scoreDelta}` : candidate.scoreDelta} this month
-            </p>
-          </div>
-          <div className="h-2 rounded-full bg-[#1e293b] overflow-hidden mb-3">
+          <p className="font-serif text-6xl text-[#faf7f2] leading-none mb-3">{candidate.alignmentScore}</p>
+          <p className={`text-sm mb-5 ${candidate.scoreDelta >= 0 ? "text-emerald-400" : "text-amber-300"}`}>
+            {candidate.scoreDelta >= 0 ? `+${candidate.scoreDelta}` : candidate.scoreDelta} this month
+          </p>
+          <div className="h-1.5 rounded-full bg-[#1e293b] overflow-hidden lg:ml-auto lg:max-w-[180px]">
             <div
               className="h-full rounded-full bg-gradient-to-r from-[#d97706] to-[#f59e0b]"
               style={{ width: `${candidate.alignmentScore}%` }}
             />
           </div>
-          <p className="text-[#94a3b8] text-xs leading-relaxed">
-            Public score tracking whether decisions match the published governing system.
-          </p>
         </div>
       </div>
     </Link>

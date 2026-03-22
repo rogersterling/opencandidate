@@ -89,8 +89,8 @@ export default function Home() {
       <Hero />
 
       <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
-        <div className="max-w-6xl">
-          <div className="max-w-3xl mb-10">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl mb-12">
             <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
               How it works
             </p>
@@ -102,17 +102,17 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-4 gap-4 lg:gap-5">
+          <div className="grid lg:grid-cols-4 gap-x-8 gap-y-8">
             {systemFlow.map((item, index) => (
-              <div key={item.title} className="relative rounded-[1.75rem] border border-[#223046] bg-[#111827]/45 p-6 md:p-7 min-h-[220px]">
-                <div className="flex items-center justify-between mb-8">
+              <div key={item.title} className="relative border-t border-[#253247] pt-6 md:pt-7 pr-4 min-h-[190px]">
+                <div className="flex items-center justify-between mb-6">
                   <p className="text-[#64748b] text-[11px] uppercase tracking-[0.22em]">{item.label}</p>
                   <p className="text-[#d97706] text-[11px] uppercase tracking-[0.22em]">{item.eyebrow}</p>
                 </div>
-                <h3 className="font-serif text-2xl text-[#faf7f2] mb-3 max-w-[14rem]">{item.title}</h3>
-                <p className="text-[#94a3b8] text-sm leading-relaxed max-w-[15rem]">{item.desc}</p>
+                <h3 className="font-serif text-[1.85rem] text-[#faf7f2] mb-3 max-w-[14rem] leading-tight">{item.title}</h3>
+                <p className="text-[#94a3b8] text-sm leading-relaxed max-w-[16rem]">{item.desc}</p>
                 {index < systemFlow.length - 1 && (
-                  <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 h-6 w-6 items-center justify-center rounded-full border border-[#344256] bg-[#0f172a] text-[#d97706]">
+                  <div className="hidden lg:flex absolute -right-4 top-7 h-6 w-6 items-center justify-center text-[#d97706]">
                     →
                   </div>
                 )}
@@ -123,20 +123,20 @@ export default function Home() {
       </section>
 
       <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
-        <div className="max-w-6xl grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-start">
-          <div>
+        <div className="mx-auto max-w-7xl grid lg:grid-cols-[0.92fr_1.08fr] gap-12 xl:gap-16 items-start">
+          <div className="max-w-xl">
             <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
               Worked example
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-4">
               What this looks like on a real vote.
             </h2>
-            <p className="text-[#94a3b8] leading-relaxed max-w-xl">
+            <p className="text-[#94a3b8] leading-relaxed">
               The point is not that AI decides. The point is that the public can compare what the platform implied to what the politician actually did.
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-[#2b3448] bg-[radial-gradient(circle_at_top_right,_rgba(217,119,6,0.14),_transparent_35%),_rgba(15,23,42,0.88)] p-6 md:p-8 shadow-[0_0_50px_rgba(15,23,42,0.4)]">
+          <div className="rounded-[2rem] border border-[#253247] bg-[linear-gradient(180deg,rgba(250,247,242,0.03),rgba(17,24,39,0.56)),radial-gradient(circle_at_top_right,rgba(217,119,6,0.15),transparent_34%)] p-6 md:p-8 shadow-[0_20px_70px_rgba(2,6,23,0.26)]">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 border-b border-[#243041] pb-6 mb-6">
               <div>
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.22em] mb-2">Example case</p>
@@ -148,26 +148,26 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4 mb-5">
-              <div className="rounded-2xl border border-[#223046] bg-[#0f172a]/75 p-5">
+            <div className="grid md:grid-cols-2 gap-3 mb-5">
+              <div className="rounded-[1.35rem] border border-[#223046] bg-[#0f172a]/62 p-5">
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-3">PLATFORM</p>
                 <p className="text-[#cbd5e1] text-sm leading-relaxed">No major debt without clear public ROI.</p>
               </div>
-              <div className="rounded-2xl border border-[#223046] bg-[#0f172a]/75 p-5">
+              <div className="rounded-[1.35rem] border border-[#223046] bg-[#0f172a]/62 p-5">
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-3">RECOMMENDATION</p>
                 <p className="text-[#faf7f2] text-sm leading-relaxed">Vote NO. Projected upside is speculative and fiscal exposure is real.</p>
               </div>
-              <div className="rounded-2xl border border-[#223046] bg-[#0f172a]/75 p-5">
+              <div className="rounded-[1.35rem] border border-[#223046] bg-[#0f172a]/62 p-5">
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-3">ACTION</p>
                 <p className="text-amber-300 text-sm leading-relaxed">Politician voted YES.</p>
               </div>
-              <div className="rounded-2xl border border-[#223046] bg-[#0f172a]/75 p-5">
+              <div className="rounded-[1.35rem] border border-[#223046] bg-[#0f172a]/62 p-5">
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.18em] mb-3">OVERRIDE NOTE</p>
                 <p className="text-[#94a3b8] text-sm leading-relaxed">I believed the economic upside justified the exception.</p>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[#3b2a10] bg-[#1a140a]/60 p-5">
+            <div className="rounded-[1.35rem] border border-[#3b2a10] bg-[#1a140a]/48 p-5">
               <p className="text-[#fbbf24] text-[11px] uppercase tracking-[0.18em] mb-2">Why it matters</p>
               <p className="text-[#f8e7c1] text-sm leading-relaxed">
                 The override might be reasonable. Fine. The important thing is that it is visible, explained, and scored against the published platform.
@@ -178,12 +178,12 @@ export default function Home() {
       </section>
 
       <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
-        <div className="max-w-6xl grid lg:grid-cols-[0.92fr_1.08fr] gap-10 items-start">
+        <div className="mx-auto max-w-7xl grid lg:grid-cols-[0.92fr_1.08fr] gap-12 xl:gap-16 items-start">
           <div>
             <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
               Why it exists
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-4 max-w-xl">
               Politicians change under pressure. Usually where the public cannot see it.
             </h2>
             <p className="text-[#94a3b8] leading-relaxed mb-4 max-w-xl">
@@ -196,7 +196,7 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 gap-4">
             {decisionItems.map((item) => (
-              <div key={item} className="rounded-2xl border border-[#1e293b] bg-[#111827]/35 p-5">
+              <div key={item} className="rounded-[1.35rem] border border-[#1e293b] bg-[#111827]/26 p-5">
                 <p className="text-[#64748b] text-[11px] uppercase tracking-[0.2em] mb-3">Runs through system</p>
                 <p className="text-[#cbd5e1] text-base leading-snug">{item}</p>
               </div>
@@ -206,7 +206,7 @@ export default function Home() {
       </section>
 
       <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
-        <div className="max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl mb-10">
             <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
               Comparison
@@ -219,7 +219,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-[1.75rem] border border-[#223046] bg-[#111827]/40">
+          <div className="overflow-hidden rounded-[1.75rem] border border-[#223046] bg-[#111827]/28">
             <div className="hidden md:grid grid-cols-[220px_1fr_1fr] border-b border-[#223046] bg-[#0f172a]/80">
               <div className="p-5 text-[#64748b] text-[11px] uppercase tracking-[0.22em]">Measure</div>
               <div className="p-5 text-[#cbd5e1] text-sm uppercase tracking-[0.2em]">Normal politician</div>
@@ -258,39 +258,43 @@ export default function Home() {
       </section>
 
       <section className="px-6 md:px-12 lg:px-24 py-20 border-t border-[#1e293b]">
-        <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-4">
-          Demo candidates
-        </h2>
-        <p className="text-[#64748b] text-sm mb-12 max-w-2xl">
-          Three fictional Austin candidates. Three different published platforms. Three different public accountability loops.
-        </p>
-        <div>
-          {candidates.map((c) => (
-            <CandidateCard key={c.slug} candidate={c} />
-          ))}
+        <div className="mx-auto max-w-7xl">
+          <h2 className="font-serif text-3xl md:text-4xl text-[#faf7f2] mb-4">
+            Demo candidates
+          </h2>
+          <p className="text-[#64748b] text-sm mb-12 max-w-2xl">
+            Three fictional Austin candidates. Three different published platforms. Three different public accountability loops.
+          </p>
+          <div>
+            {candidates.map((c) => (
+              <CandidateCard key={c.slug} candidate={c} />
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="px-6 md:px-12 lg:px-24 py-24 border-t border-[#1e293b] text-center">
-        <h2 className="font-serif text-3xl md:text-5xl text-[#faf7f2] mb-6 max-w-3xl mx-auto">
-          Turn a campaign platform into a public governing system.
-        </h2>
-        <p className="text-[#94a3b8] max-w-2xl mx-auto leading-relaxed mb-10">
-          Define the platform. Publish the rules. Show the recommendation. Record the action. Keep score.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/create"
-            className="inline-block px-8 py-4 bg-[#d97706] text-white text-sm font-medium rounded-lg hover:bg-[#b45309] transition-colors"
-          >
-            Build a governing system
-          </Link>
-          <Link
-            href="/involve"
-            className="inline-block px-8 py-4 border border-[#d97706] text-[#d97706] text-sm font-medium rounded-lg hover:bg-[#d97706] hover:text-white transition-colors"
-          >
-            Get involved
-          </Link>
+        <div className="mx-auto max-w-7xl">
+          <h2 className="font-serif text-3xl md:text-5xl text-[#faf7f2] mb-6 max-w-3xl mx-auto">
+            Turn a campaign platform into a public governing system.
+          </h2>
+          <p className="text-[#94a3b8] max-w-2xl mx-auto leading-relaxed mb-10">
+            Define the platform. Publish the rules. Show the recommendation. Record the action. Keep score.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/create"
+              className="inline-block px-8 py-4 bg-[#d97706] text-white text-sm font-medium rounded-lg hover:bg-[#b45309] transition-colors"
+            >
+              Build a governing system
+            </Link>
+            <Link
+              href="/involve"
+              className="inline-block px-8 py-4 border border-[#d97706] text-[#d97706] text-sm font-medium rounded-lg hover:bg-[#d97706] hover:text-white transition-colors"
+            >
+              Get involved
+            </Link>
+          </div>
         </div>
       </section>
 
