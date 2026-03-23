@@ -33,7 +33,7 @@ export const candidates: Candidate[] = [
     race: "Mayor",
     location: "Austin, TX",
     summary:
-      "Transit-first mayoral platform turned into a public governing system for transportation, land use, and climate decisions.",
+      "Transit-first mayoral platform with a public record across transportation, land use, and climate decisions.",
     alignmentScore: 92,
     scoreDelta: 4,
     recentDecisions: [
@@ -115,7 +115,7 @@ Tone: Data-driven, pragmatic, occasionally blunt. I cite numbers. I compare Aust
     race: "Mayor",
     location: "Austin, TX",
     summary:
-      "Fiscal-discipline mayoral platform turned into a public governing system for budgets, public safety, and city operations.",
+      "Fiscal-discipline mayoral platform with a visible record on budgets, public safety, and city operations.",
     alignmentScore: 81,
     scoreDelta: -7,
     recentDecisions: [
@@ -197,7 +197,7 @@ Tone: Direct, no-nonsense, fiscally literate. I talk in dollars and response tim
     race: "Mayor",
     location: "Austin, TX",
     summary:
-      "Anti-displacement mayoral platform turned into a public governing system for housing, neighborhood protection, and local investment.",
+      "Anti-displacement mayoral platform with a public record for housing, neighborhood protection, and local investment.",
     alignmentScore: 87,
     scoreDelta: 2,
     recentDecisions: [

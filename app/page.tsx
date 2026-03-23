@@ -23,7 +23,7 @@ const systemFlow = [
   {
     label: "Step 04",
     title: "Track the record",
-    desc: "Score comes after repeated decisions make a pattern visible.",
+    desc: "Patterns matter more than one good speech after the fact.",
   },
 ];
 
@@ -36,7 +36,7 @@ const comparisonRows = [
   {
     label: "Decision process",
     normal: "Internal and hard to inspect.",
-    open: "Run through a public system before major action.",
+    open: "Major actions are checked against a public framework.",
   },
   {
     label: "Overrides",
@@ -78,7 +78,7 @@ export default function Home() {
               One public loop from promise to action.
             </h2>
             <p className="text-base leading-7 text-[#94a3b8] md:text-lg">
-              This is not a chatbot for campaigning. It is a visible system for governing.
+              The homepage explains the mechanism. Candidate pages show it under pressure.
             </p>
           </div>
 
@@ -108,7 +108,7 @@ export default function Home() {
               Worked example
             </p>
             <h2 className="mb-3 font-serif text-3xl text-[#faf7f2] md:text-4xl">
-              What this looks like on a real vote.
+              One clear vote is enough to make the idea concrete.
             </h2>
             <p className="leading-7 text-[#94a3b8]">
               The point is not that AI decides. The point is that the public can compare what the platform implied to what the politician actually did.
@@ -123,15 +123,15 @@ export default function Home() {
 
             <div className="grid gap-3 py-4 sm:gap-4 sm:py-5">
               <div className="rounded-[24px] border border-[#223046] bg-[#0f172a]/62 p-4 sm:p-5">
-                <p className="mb-2 text-[11px] uppercase tracking-[0.18em] text-[#64748b]">Platform says</p>
+                <p className="mb-2 text-[11px] uppercase tracking-[0.18em] text-[#64748b]">Published rule</p>
                 <p className="text-sm leading-6 text-[#cbd5e1]">No major debt without clear public ROI.</p>
               </div>
               <div className="rounded-[24px] border border-[#223046] bg-[#0f172a]/62 p-4 sm:p-5">
-                <p className="mb-2 text-[11px] uppercase tracking-[0.18em] text-[#64748b]">System recommends</p>
+                <p className="mb-2 text-[11px] uppercase tracking-[0.18em] text-[#64748b]">Recommendation</p>
                 <p className="text-sm leading-6 text-[#faf7f2]">Vote no. Projected upside is speculative and fiscal exposure is real.</p>
               </div>
               <div className="rounded-[24px] border border-[#223046] bg-[#0f172a]/62 p-4 sm:p-5">
-                <p className="mb-2 text-[11px] uppercase tracking-[0.18em] text-[#64748b]">Candidate did</p>
+                <p className="mb-2 text-[11px] uppercase tracking-[0.18em] text-[#64748b]">Action</p>
                 <p className="text-sm leading-6 text-amber-300">Voted yes.</p>
               </div>
               <div className="rounded-[24px] border border-[#223046] bg-[#0f172a]/62 p-4 sm:p-5">
@@ -141,9 +141,9 @@ export default function Home() {
             </div>
 
             <div className="rounded-[24px] border border-[#223046] bg-[#111827]/28 p-4 sm:p-5">
-              <p className="mb-2 text-[11px] uppercase tracking-[0.18em] text-[#64748b]">Later in the record</p>
+              <p className="mb-2 text-[11px] uppercase tracking-[0.18em] text-[#64748b]">What changes over time</p>
               <p className="text-sm leading-6 text-[#94a3b8]">
-                Once enough decisions accumulate, the public can see the alignment score move from 91 to 78.
+                One vote is a record. A sequence of votes becomes a pattern people can actually judge.
               </p>
             </div>
           </div>
@@ -154,26 +154,27 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl items-start gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
           <div>
             <p className="mb-3 text-[11px] uppercase tracking-[0.2em] text-[#d97706]">
-              Why it exists
+              What belongs in scope
             </p>
             <h2 className="mb-3 max-w-xl font-serif text-3xl text-[#faf7f2] md:text-4xl">
-              Politicians change under pressure. Usually where the public cannot see it.
+              Use it where governing choices are concrete enough to inspect.
             </h2>
             <p className="mb-4 max-w-xl leading-7 text-[#94a3b8]">
-              Governing happens after the campaign, under time pressure, inside negotiations, and around incentives voters never get to inspect in real time.
+              The system is most useful when there is a real decision, a visible tradeoff, and a public consequence.
             </p>
             <p className="max-w-xl leading-7 text-[#94a3b8]">
-              OpenCandidate makes the drift legible. It does not assume software is wise. It assumes a public system is easier to audit than a private excuse.
+              It is not there to narrate every press release. It is there to create a clean record where drift usually hides.
             </p>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
-            {decisionItems.map((item) => (
-              <div key={item} className="rounded-[24px] border border-[#1e293b] bg-[#111827]/26 p-4 sm:p-5">
-                <p className="mb-2 text-[11px] uppercase tracking-[0.2em] text-[#64748b]">Runs through system</p>
-                <p className="text-sm leading-6 text-[#cbd5e1]">{item}</p>
-              </div>
-            ))}
+          <div className="rounded-[28px] border border-[#223046] bg-[#111827]/24 p-5 sm:p-6">
+            <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4">
+              {decisionItems.map((item) => (
+                <li key={item} className="rounded-[20px] border border-[#1e293b] bg-[#0f172a]/40 px-4 py-3 text-sm leading-6 text-[#cbd5e1]">
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -236,7 +237,7 @@ export default function Home() {
             Demo candidates
           </h2>
           <p className="mb-6 max-w-2xl text-sm leading-6 text-[#64748b] md:mb-8">
-            Three fictional Austin candidates. Three different published platforms. Three different public accountability loops.
+            Three fictional Austin candidates. Three different governing logics. Three different public records.
           </p>
           <div>
             {candidates.map((c) => (
@@ -252,7 +253,7 @@ export default function Home() {
             Turn a campaign platform into a public governing system.
           </h2>
           <p className="mx-auto mb-6 max-w-2xl leading-7 text-[#94a3b8] md:mb-8">
-            Define the platform. Publish the rules. Show the recommendation. Record the action. Keep score.
+            Define the platform. Publish the rules. Show the recommendation. Record the action. Let the public judge the pattern.
           </p>
           <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
             <Link

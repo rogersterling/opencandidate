@@ -14,55 +14,56 @@ const posts = [
     author: "OpenCandidate",
     content: `Most politicians do not break their promises all at once. They drift.
 
-A donor asks for an exception. A party leader asks for patience. A budget gets tight. A deal gets cut. By the time voters see the pattern, the explanation is already polished and the decision is already made.
+A donor asks for an exception. A party leader asks for patience. A budget gets tight. A deal gets cut. By the time voters see the pattern, the explanation is polished and the decision is already old.
 
 OpenCandidate is built around that reality.
 
-The point is not that AI should run government. The point is that a campaign platform should not disappear the moment someone takes office.
+The core idea is simple. A campaign platform should not disappear the moment someone takes office.
 
-A candidate should be able to publish the platform they ran on, turn it into explicit decision rules, and govern through those rules in public. Bills, budgets, land use votes, procurement decisions. The repetitive work of applying the rules can be done by AI. The officeholder remains the officeholder.
+A candidate should be able to publish the platform they ran on, turn it into explicit decision rules, and govern against those rules in public.
 
-Then the public can compare two things: what the system recommended and what the politician actually did.
+That means the public can compare two things. What the system recommended. What the politician actually did.
 
-That comparison matters. It creates a public record of alignment and override. It makes quiet drift harder. It makes political pressure easier to spot. It gives voters something better than vibes and cleanup statements.
+That comparison creates a record. It makes quiet drift harder. It gives voters something better than vibes and cleanup statements.
 
-Overrides still happen. They should. Politics has edge cases, emergencies, and facts that change. The problem is not override. The problem is hidden override.
+Overrides still happen. They should. Politics has edge cases, emergencies, and facts that change. The issue is not override itself. The issue is whether the override is visible.
 
-That is the whole idea in one line: hold politicians to the platform they ran on.
+We are starting with local politics because the decisions are concrete there. Council votes matter. Budget choices matter. Zoning cases matter.
 
-We are starting with local politics because the work is concrete there. Council votes matter. Budget choices matter. Zoning decisions matter. A city is small enough to implement this and large enough for the public record to matter.
-
-The current site shows three fictional Austin candidates with different campaign platforms and different governing rules. The next step is a real candidate willing to bind themselves to the system in public.`
+The current site shows three fictional Austin candidates with different governing logics. The next step is a real candidate willing to use the system in public.`
   },
 ];
 
 export default function UpdatesPage() {
   return (
     <main>
-      <section className="px-6 md:px-12 lg:px-24 py-24 min-h-screen">
+      <section className="min-h-screen px-6 py-24 md:px-12 lg:px-24">
         <Link
           href="/"
-          className="text-[#64748b] text-sm hover:text-[#94a3b8] transition-colors mb-12 inline-block"
+          className="mb-12 inline-block text-sm text-[#64748b] transition-colors hover:text-[#94a3b8]"
         >
           ← Back
         </Link>
-        <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
+        <p className="mb-6 text-xs uppercase tracking-[0.2em] text-[#d97706]">
           Updates
         </p>
-        <h1 className="font-serif text-4xl md:text-5xl text-[#faf7f2] mb-16">
+        <h1 className="mb-6 font-serif text-4xl text-[#faf7f2] md:text-5xl">
           Project notes
         </h1>
+        <p className="mb-16 max-w-2xl text-lg leading-relaxed text-[#94a3b8]">
+          This page is for progress and thinking in public, not for re-explaining the homepage word for word.
+        </p>
 
         <div className="max-w-3xl space-y-16">
           {posts.map((post) => (
             <article key={post.slug}>
-              <p className="text-[#64748b] text-xs uppercase tracking-wider mb-2">
+              <p className="mb-2 text-xs uppercase tracking-wider text-[#64748b]">
                 {post.date} · {post.author}
               </p>
-              <h2 className="font-serif text-2xl md:text-3xl text-[#faf7f2] mb-6">
+              <h2 className="mb-6 font-serif text-2xl text-[#faf7f2] md:text-3xl">
                 {post.title}
               </h2>
-              <div className="text-[#cbd5e1] leading-relaxed space-y-4">
+              <div className="space-y-4 leading-relaxed text-[#cbd5e1]">
                 {post.content.split("\n\n").map((paragraph, i) => (
                   <p key={i}>{paragraph}</p>
                 ))}
@@ -72,7 +73,7 @@ export default function UpdatesPage() {
         </div>
       </section>
 
-      <footer className="px-6 md:px-12 lg:px-24 py-12 border-t border-[#1e293b] text-[#475569] text-xs">
+      <footer className="border-t border-[#1e293b] px-6 py-12 text-xs text-[#475569] md:px-12 lg:px-24">
         OpenCandidate is an open project for candidates who want a public governing system people can inspect.
       </footer>
     </main>

@@ -2,23 +2,23 @@ import Link from "next/link";
 
 const artifactRows = [
   {
-    label: "Platform says",
-    value: "No major debt without clear public ROI.",
+    label: "Published rule",
+    value: "Permit reform comes before new incentive spending.",
     tone: "text-[#cbd5e1]",
   },
   {
-    label: "System recommends",
-    value: "Vote no on the stadium bond.",
+    label: "Recommendation",
+    value: "Approve the 30-day permitting pilot.",
     tone: "text-[#faf7f2]",
   },
   {
-    label: "Candidate did",
-    value: "Voted yes.",
+    label: "Action",
+    value: "Passed 6-1.",
     tone: "text-amber-300",
   },
   {
     label: "Public note",
-    value: "Economic upside justified the exception.",
+    value: "Pilot is funded from existing operations budget and reviewed in 90 days.",
     tone: "text-[#94a3b8]",
   },
 ];
@@ -36,8 +36,8 @@ export default function Hero() {
           </h1>
           <p className="mb-6 max-w-2xl text-base leading-7 text-[#cbd5e1] sm:text-lg md:mb-8 md:text-xl md:leading-8">
             OpenCandidate turns campaign promises into a public governing system.
-            The public sees what the platform implied, what the politician did,
-            and how those choices hold up over time.
+            The public can inspect the rules, watch a real decision run against them,
+            and compare the recommendation to what happened next.
           </p>
           <div className="mb-6 flex flex-col gap-3 sm:mb-8 sm:items-start md:flex-row md:gap-4">
             <Link
@@ -56,26 +56,26 @@ export default function Hero() {
           <div className="grid gap-4 border-t border-[#1e293b] pt-6 sm:grid-cols-3 sm:gap-6 sm:pt-8">
             <div>
               <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-[#64748b]">
-                Platform
+                Publish it
               </p>
               <p className="text-sm leading-6 text-[#cbd5e1]">
-                Published priorities and constraints.
+                Priorities, budget posture, and hard lines are stated up front.
               </p>
             </div>
             <div>
               <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-[#64748b]">
-                Decision
+                Test it
               </p>
               <p className="text-sm leading-6 text-[#cbd5e1]">
-                Recommendation and action shown together.
+                Major decisions get checked against the same public rules.
               </p>
             </div>
             <div>
               <p className="mb-2 text-[11px] uppercase tracking-[0.24em] text-[#64748b]">
-                Record
+                Keep the record
               </p>
               <p className="text-sm leading-6 text-[#cbd5e1]">
-                Score comes later, after a visible pattern forms.
+                Recommendation, action, and any override stay together.
               </p>
             </div>
           </div>
@@ -88,13 +88,13 @@ export default function Hero() {
                 Example public record
               </p>
               <h2 className="font-serif text-[1.75rem] leading-tight text-[#faf7f2] sm:text-[2rem] md:text-[2.15rem]">
-                One decision, shown clearly.
+                One decision. No mystery.
               </h2>
             </div>
 
             <div className="py-4 sm:py-5">
               <p className="mb-3 text-[11px] uppercase tracking-[0.24em] text-[#64748b]">
-                Stadium bond vote
+                Permit reform pilot
               </p>
               <dl className="grid gap-3">
                 {artifactRows.map((row) => (
@@ -115,7 +115,7 @@ export default function Hero() {
 
             <div className="border-t border-[#223046] pt-4 sm:pt-5">
               <p className="max-w-md text-sm leading-6 text-[#94a3b8]">
-                Start with the recommendation and the action. Score belongs after the public can see the pattern.
+                This is the basic unit of the product. A published rule, a recommendation, an action, and a public explanation when they diverge.
               </p>
             </div>
           </div>

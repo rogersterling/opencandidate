@@ -16,13 +16,13 @@ const tracks = [
   {
     label: "Fund",
     description:
-      "You want to back an accountability mechanism, not another awareness campaign. Early funding helps build the system, the public record, and the first real implementation.",
+      "You want to back an accountability mechanism, not another awareness campaign. Early funding helps build the product, the public record, and the first real implementation.",
     mailto: "mailto:sam@runpoint.ai?subject=OpenCandidate%20-%20Fund",
   },
   {
     label: "Run",
     description:
-      "You are willing to run for office and be held to the platform you campaigned on. That means publishing decision rules, running major decisions through them, and owning overrides in public.",
+      "You are willing to run for office and be held to the platform you campaigned on. That means publishing decision rules, routing major choices through them, and owning overrides in public.",
     mailto: "mailto:sam@runpoint.ai?subject=OpenCandidate%20-%20Run",
   },
 ];
@@ -30,38 +30,38 @@ const tracks = [
 export default function InvolvePage() {
   return (
     <main>
-      <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 py-24">
+      <section className="flex min-h-screen flex-col justify-center px-6 py-24 md:px-12 lg:px-24">
         <Link
           href="/"
-          className="text-[#64748b] text-sm hover:text-[#94a3b8] transition-colors mb-12"
+          className="mb-12 text-sm text-[#64748b] transition-colors hover:text-[#94a3b8]"
         >
           ← Back
         </Link>
-        <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
+        <p className="mb-6 text-xs uppercase tracking-[0.2em] text-[#d97706]">
           Get Involved
         </p>
-        <h1 className="font-serif text-4xl md:text-5xl text-[#faf7f2] leading-tight max-w-3xl mb-6">
+        <h1 className="mb-6 max-w-3xl font-serif text-4xl leading-tight text-[#faf7f2] md:text-5xl">
           Three ways to help make this real.
         </h1>
-        <p className="text-[#94a3b8] text-lg max-w-2xl leading-relaxed mb-16">
-          OpenCandidate needs people who can test the mechanism, fund the first real deployments, or run for office under a public governing system.
+        <p className="mb-16 max-w-2xl text-lg leading-relaxed text-[#94a3b8]">
+          This page is the conversion page. Pick the lane that fits. We do not need everyone to do everything.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl">
+        <div className="grid max-w-5xl gap-8 md:grid-cols-3">
           {tracks.map((track) => (
             <div
               key={track.label}
-              className="border border-[#1e293b] rounded-lg p-8 flex flex-col"
+              className="flex flex-col rounded-lg border border-[#1e293b] p-8"
             >
-              <span className="text-[#d97706] font-serif text-2xl mb-4">
+              <span className="mb-4 font-serif text-2xl text-[#d97706]">
                 {track.label}
               </span>
-              <p className="text-[#94a3b8] text-sm leading-relaxed mb-8 flex-1">
+              <p className="mb-8 flex-1 text-sm leading-relaxed text-[#94a3b8]">
                 {track.description}
               </p>
               <a
                 href={track.mailto}
-                className="inline-block px-6 py-3 border border-[#d97706] text-[#d97706] text-sm font-medium rounded-lg hover:bg-[#d97706] hover:text-white transition-colors text-center"
+                className="inline-block rounded-lg border border-[#d97706] px-6 py-3 text-center text-sm font-medium text-[#d97706] transition-colors hover:bg-[#d97706] hover:text-white"
               >
                 Reach out
               </a>
@@ -70,8 +70,8 @@ export default function InvolvePage() {
         </div>
       </section>
 
-      <footer className="px-6 md:px-12 lg:px-24 py-12 border-t border-[#1e293b] text-[#475569] text-xs">
-        OpenCandidate is an open project for candidates who want voters to see the plan, the recommendation, and the override record.
+      <footer className="border-t border-[#1e293b] px-6 py-12 text-xs text-[#475569] md:px-12 lg:px-24">
+        OpenCandidate is an open project for candidates who want voters to see the plan, the action, and any override that followed.
       </footer>
     </main>
   );

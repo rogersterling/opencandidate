@@ -10,15 +10,15 @@ export const metadata: Metadata = {
 const practiceItems = [
   {
     title: "Bill or ordinance",
-    body: "A proposal lands on the agenda. The system applies the candidate's decision rules, shows the likely recommendation, and identifies where the proposal fits or conflicts with the campaign platform.",
+    body: "A proposal lands on the agenda. The system checks it against the platform, surfaces the tradeoffs, and leaves a visible record of the recommendation.",
   },
   {
     title: "Budget vote",
-    body: "A budget forces tradeoffs. The system maps spending choices back to the published priorities and exposes where the officeholder is honoring or ignoring them.",
+    body: "A budget forces priorities into conflict. The public can see which promises were protected, which were deferred, and why.",
   },
   {
     title: "Override",
-    body: "The politician can still depart from the recommendation. The difference is that the departure becomes visible, explained, and part of the public record.",
+    body: "The officeholder can still break from the recommendation. The difference is that the break is named, explained, and preserved in public.",
   },
 ];
 
@@ -31,161 +31,161 @@ const needs = [
 export default function BriefPage() {
   return (
     <main className="min-h-screen">
-      <header className="px-6 md:px-12 lg:px-24 py-8 flex items-center justify-between border-b border-[#1e293b]">
-        <Link href="/" className="font-serif text-xl text-[#faf7f2] tracking-tight">
+      <header className="flex items-center justify-between border-b border-[#1e293b] px-6 py-8 md:px-12 lg:px-24">
+        <Link href="/" className="font-serif text-xl tracking-tight text-[#faf7f2]">
           Open<span className="text-[#d97706]">Candidate</span>
         </Link>
         <a
           href="/opencandidate-brief.pdf"
           download
-          className="text-sm text-[#d97706] border border-[#d97706] px-4 py-2 hover:bg-[#d97706] hover:text-[#0f172a] transition-colors"
+          className="border border-[#d97706] px-4 py-2 text-sm text-[#d97706] transition-colors hover:bg-[#d97706] hover:text-[#0f172a]"
         >
           Download PDF
         </a>
       </header>
 
-      <section className="px-6 md:px-12 lg:px-24 py-20">
-        <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-4">
+      <section className="px-6 py-20 md:px-12 lg:px-24">
+        <p className="mb-4 text-xs uppercase tracking-[0.2em] text-[#d97706]">
           Concept memo
         </p>
-        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#faf7f2] leading-tight max-w-4xl mb-8">
+        <h1 className="mb-8 max-w-4xl font-serif text-4xl leading-tight text-[#faf7f2] md:text-5xl lg:text-6xl">
           Hold politicians to the platform they ran on.
         </h1>
-        <p className="text-[#94a3b8] text-lg leading-relaxed max-w-3xl">
-          OpenCandidate turns a campaign platform into a public governing system. AI applies that system to real decisions. The officeholder remains human. The public gets a durable record of alignment, override, and drift.
+        <p className="max-w-3xl text-lg leading-relaxed text-[#94a3b8]">
+          This page is the argument for the project. The homepage shows the mechanism. Candidate pages show the record. Here is the case for why any of it should exist.
         </p>
       </section>
 
-      <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
+      <section className="border-t border-[#1e293b] px-6 py-16 md:px-12 lg:px-24">
         <div className="max-w-3xl">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
+          <p className="mb-6 text-xs uppercase tracking-[0.2em] text-[#d97706]">
             Problem
           </p>
-          <p className="text-[#cbd5e1] text-lg leading-relaxed">
-            Politicians run on public promises and govern through private pressure. Voters see speeches, endorsements, and after-the-fact explanations. They do not see the actual decision process when a donor calls, a caucus leans, or an inconvenient vote shows up.
+          <p className="text-lg leading-relaxed text-[#cbd5e1]">
+            Politicians run on public promises and govern through private pressure. Voters see speeches, endorsements, and cleanup statements after the vote. They usually do not see the actual decision process when a donor calls, a caucus leans, or a budget hole opens up.
           </p>
-          <p className="text-[#94a3b8] leading-relaxed mt-6">
-            The failure is not a lack of values language. Every campaign already has that. The failure is that the platform disappears once governing starts.
+          <p className="mt-6 leading-relaxed text-[#94a3b8]">
+            The problem is not a shortage of values language. Campaigns already have plenty of that. The problem is that the platform stops mattering once governing starts.
           </p>
         </div>
       </section>
 
-      <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
+      <section className="border-t border-[#1e293b] px-6 py-16 md:px-12 lg:px-24">
         <div className="max-w-3xl">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
+          <p className="mb-6 text-xs uppercase tracking-[0.2em] text-[#d97706]">
             Solution
           </p>
-          <p className="text-[#cbd5e1] text-lg leading-relaxed">
+          <p className="text-lg leading-relaxed text-[#cbd5e1]">
             Turn the campaign platform into a public governing system before or at the start of office. Publish the priorities, fiscal logic, decision rules, and accepted tradeoffs in a form that can be applied consistently.
           </p>
-          <p className="text-[#94a3b8] leading-relaxed mt-6">
-            AI is useful here for one reason. It can apply the same public rules over and over to bills, budgets, and major decisions without getting tired, flattered, pressured, or quietly bought off.
+          <p className="mt-6 leading-relaxed text-[#94a3b8]">
+            AI matters here because it can apply the same visible rules across repetitive public decisions without getting tired, flattered, pressured, or quietly captured. The officeholder is still human. The difference is that the reasoning trail is harder to hide.
           </p>
         </div>
       </section>
 
-      <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
+      <section className="border-t border-[#1e293b] px-6 py-16 md:px-12 lg:px-24">
         <div className="max-w-4xl">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
+          <p className="mb-6 text-xs uppercase tracking-[0.2em] text-[#d97706]">
             Mechanism
           </p>
           <div className="space-y-8">
             <div className="flex gap-6">
-              <span className="font-serif text-2xl text-[#d97706] shrink-0">1.</span>
-              <p className="text-[#cbd5e1] text-lg leading-relaxed">
-                The candidate publishes the campaign platform as a structured set of decision rules, including priorities, budget posture, tradeoffs, and hard lines.
+              <span className="shrink-0 font-serif text-2xl text-[#d97706]">1.</span>
+              <p className="text-lg leading-relaxed text-[#cbd5e1]">
+                The candidate publishes the platform as a structured set of priorities, tradeoffs, fiscal rules, and hard lines.
               </p>
             </div>
             <div className="flex gap-6">
-              <span className="font-serif text-2xl text-[#d97706] shrink-0">2.</span>
-              <p className="text-[#cbd5e1] text-lg leading-relaxed">
-                OpenCandidate applies those rules to governing inputs: legislation, budget choices, land use decisions, procurement, and major public commitments.
+              <span className="shrink-0 font-serif text-2xl text-[#d97706]">2.</span>
+              <p className="text-lg leading-relaxed text-[#cbd5e1]">
+                OpenCandidate applies those rules to legislation, budgets, land use decisions, procurement, and major public commitments.
               </p>
             </div>
             <div className="flex gap-6">
-              <span className="font-serif text-2xl text-[#d97706] shrink-0">3.</span>
-              <p className="text-[#cbd5e1] text-lg leading-relaxed">
-                The recommendation and reasoning are visible. If the officeholder overrides the system, that override is logged and explained in the public record.
+              <span className="shrink-0 font-serif text-2xl text-[#d97706]">3.</span>
+              <p className="text-lg leading-relaxed text-[#cbd5e1]">
+                The recommendation is public. If the officeholder overrides it, the override is public too.
               </p>
             </div>
             <div className="flex gap-6">
-              <span className="font-serif text-2xl text-[#d97706] shrink-0">4.</span>
-              <p className="text-[#cbd5e1] text-lg leading-relaxed">
-                Alignment can then be measured over time. Voters no longer have to guess whether the politician is still governing through the platform they ran on.
+              <span className="shrink-0 font-serif text-2xl text-[#d97706]">4.</span>
+              <p className="text-lg leading-relaxed text-[#cbd5e1]">
+                Over time, voters get a visible record instead of campaign nostalgia and retrospective excuses.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
+      <section className="border-t border-[#1e293b] px-6 py-16 md:px-12 lg:px-24">
         <div className="max-w-3xl">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
+          <p className="mb-6 text-xs uppercase tracking-[0.2em] text-[#d97706]">
             Why this is less corruptible
           </p>
-          <p className="text-[#cbd5e1] text-lg leading-relaxed">
-            The claim is not that software is morally superior to people. The claim is narrower. A public governing system is harder to bend quietly than a human operating alone.
+          <p className="text-lg leading-relaxed text-[#cbd5e1]">
+            The claim is narrow. A public system is harder to bend quietly than a private decision process.
           </p>
-          <p className="text-[#94a3b8] leading-relaxed mt-6">
-            A politician can take a meeting, change course, and offer a vague explanation later. A public system leaves traces. Changes to the rules are visible. Overrides are visible. Long-term drift is visible. That does not eliminate corruption. It raises the cost of hiding it.
+          <p className="mt-6 leading-relaxed text-[#94a3b8]">
+            A politician can take a meeting, change course, and explain it later. A published system leaves traces. Changes to the rules are visible. Overrides are visible. Long-term drift is visible. That does not eliminate corruption. It raises the cost of hiding it.
           </p>
-          <p className="text-[#faf7f2] font-serif text-2xl leading-snug mt-8">
-            Not every override is bad. Hidden overrides are.
+          <p className="mt-8 font-serif text-2xl leading-snug text-[#faf7f2]">
+            Overrides are normal. Hidden overrides are the problem.
           </p>
         </div>
       </section>
 
-      <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
+      <section className="border-t border-[#1e293b] px-6 py-16 md:px-12 lg:px-24">
         <div className="max-w-4xl">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
+          <p className="mb-6 text-xs uppercase tracking-[0.2em] text-[#d97706]">
             What it looks like in practice
           </p>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-3">
             {practiceItems.map((item) => (
-              <div key={item.title} className="border border-[#1e293b] rounded-2xl p-6 bg-[#111827]/40">
-                <h3 className="font-serif text-xl text-[#faf7f2] mb-3">{item.title}</h3>
-                <p className="text-[#94a3b8] text-sm leading-relaxed">{item.body}</p>
+              <div key={item.title} className="rounded-2xl border border-[#1e293b] bg-[#111827]/40 p-6">
+                <h3 className="mb-3 font-serif text-xl text-[#faf7f2]">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-[#94a3b8]">{item.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
+      <section className="border-t border-[#1e293b] px-6 py-16 md:px-12 lg:px-24">
         <div className="max-w-3xl">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
-            Why now and why local politics
+          <p className="mb-6 text-xs uppercase tracking-[0.2em] text-[#d97706]">
+            Why local politics first
           </p>
-          <p className="text-[#cbd5e1] text-lg leading-relaxed">
-            Local government is where decisions are concrete enough to evaluate and small enough to implement. Budgets are legible. Zoning votes matter. Procurement matters. A city council member or mayor can actually choose to govern through a published system.
+          <p className="text-lg leading-relaxed text-[#cbd5e1]">
+            Local government is where decisions are concrete enough to judge and small enough to implement. Budgets are legible. Zoning votes matter. Procurement matters. A city council member or mayor can actually choose to govern through a published system.
           </p>
-          <p className="text-[#94a3b8] leading-relaxed mt-6">
-            The timing also matters. Language models are now good enough to apply rules across repetitive public decision work. That makes this operational, not theoretical.
+          <p className="mt-6 leading-relaxed text-[#94a3b8]">
+            The timing matters too. Language models are finally good enough to apply repetitive rules across messy public decision work. That makes this operational instead of theoretical.
           </p>
         </div>
       </section>
 
-      <section className="px-6 md:px-12 lg:px-24 py-16 border-t border-[#1e293b]">
+      <section className="border-t border-[#1e293b] px-6 py-16 md:px-12 lg:px-24">
         <div className="max-w-3xl">
-          <p className="text-[#d97706] text-xs uppercase tracking-[0.2em] mb-6">
+          <p className="mb-6 text-xs uppercase tracking-[0.2em] text-[#d97706]">
             What we need
           </p>
           <div className="space-y-4">
             {needs.map((item) => (
               <div key={item} className="flex gap-4">
                 <span className="text-[#d97706]">→</span>
-                <p className="text-[#cbd5e1] text-lg">{item}</p>
+                <p className="text-lg text-[#cbd5e1]">{item}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <footer className="px-6 md:px-12 lg:px-24 py-12 border-t border-[#1e293b] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <p className="text-[#94a3b8] text-sm">
+      <footer className="flex flex-col items-start justify-between gap-4 border-t border-[#1e293b] px-6 py-12 md:flex-row md:items-center md:px-12 lg:px-24">
+        <p className="text-sm text-[#94a3b8]">
           opencandidate.org · Public governing systems for real campaigns
         </p>
-        <p className="text-[#94a3b8] text-sm">
+        <p className="text-sm text-[#94a3b8]">
           Contact: sam@runpoint.ai
         </p>
       </footer>

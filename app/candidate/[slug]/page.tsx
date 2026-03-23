@@ -99,7 +99,7 @@ function inferDecisionTypes(priorities: string[]) {
 
 function buildAlignmentCopy(candidateName: string, priorities: string[]) {
   const primary = priorities[0]?.split(" — ")[0].toLowerCase() || "the published platform";
-  return `${candidateName.split(" ")[0]}'s alignment record tracks whether major actions stay consistent with ${primary}, the rest of the published decision rules, and the tradeoffs laid out in the campaign platform.`;
+  return `${candidateName.split(" ")[0]}'s record tracks whether major actions stay consistent with ${primary}, the rest of the published decision rules, and the tradeoffs laid out in the campaign platform.`;
 }
 
 const sectionClass = "border-t border-[#1e293b] px-4 py-12 sm:px-6 md:px-12 md:py-14 lg:px-24";
@@ -154,7 +154,7 @@ export default async function CandidatePage({
               </div>
               <div className="grid gap-4">
                 <div className="rounded-[24px] border border-[#223046] bg-[#111827]/24 p-4 md:rounded-none md:border-0 md:bg-transparent md:p-0">
-                  <p className="mb-2 text-[11px] uppercase tracking-[0.22em] text-[#64748b]">Decision types</p>
+                  <p className="mb-2 text-[11px] uppercase tracking-[0.22em] text-[#64748b]">Where it gets tested</p>
                   <p className="text-sm leading-6 text-[#cbd5e1]">
                     {decisionTypes.length > 0
                       ? decisionTypes.join(", ")
@@ -162,7 +162,7 @@ export default async function CandidatePage({
                   </p>
                 </div>
                 <div className="rounded-[24px] border border-[#223046] bg-[#111827]/24 p-4 md:rounded-none md:border-0 md:bg-transparent md:p-0">
-                  <p className="mb-2 text-[11px] uppercase tracking-[0.22em] text-[#64748b]">Public record</p>
+                  <p className="mb-2 text-[11px] uppercase tracking-[0.22em] text-[#64748b]">What stays public</p>
                   <p className="text-sm leading-6 text-[#cbd5e1]">
                     Recommendation, action, explanation, and score all live together.
                   </p>
@@ -185,7 +185,7 @@ export default async function CandidatePage({
                 />
               </div>
               <p className="border-t border-[#223046] pt-4 text-sm leading-6 text-[#94a3b8]">
-                Score lives here on the candidate page, after the platform and governing frame are established.
+                The score is downstream of the record. It exists to summarize a pattern, not replace one.
               </p>
             </div>
           </aside>
@@ -202,7 +202,7 @@ export default async function CandidatePage({
               A few recent tests of the platform.
             </h2>
             <p className="leading-7 text-[#94a3b8]">
-              The concept lands faster when the recommendation and the action are side by side.
+              This section is doing the proof, not the pitch.
             </p>
           </div>
 
@@ -210,10 +210,7 @@ export default async function CandidatePage({
             {candidate.recentDecisions.map((decision) => (
               <div key={decision.issue} className="rounded-[24px] border border-[#223046] bg-[#111827]/24 p-4 sm:p-5">
                 <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                  <div>
-                    <p className="mb-2 text-[11px] uppercase tracking-[0.2em] text-[#64748b]">Issue</p>
-                    <h3 className="font-serif text-[1.6rem] leading-tight text-[#faf7f2] md:text-[1.85rem]">{decision.issue}</h3>
-                  </div>
+                  <h3 className="font-serif text-[1.6rem] leading-tight text-[#faf7f2] md:text-[1.85rem]">{decision.issue}</h3>
                   <span className={`inline-flex w-fit rounded-full border px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] ${decision.outcome === "Aligned" ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400" : "border-amber-500/30 bg-amber-500/10 text-amber-300"}`}>
                     {decision.outcome}
                   </span>
@@ -224,7 +221,7 @@ export default async function CandidatePage({
                     <p className="text-sm leading-6 text-[#faf7f2]">{decision.recommendation}</p>
                   </div>
                   <div className="rounded-xl border border-[#1f2b3d] bg-[#0f172a]/44 p-4">
-                    <p className="mb-2 text-[11px] uppercase tracking-[0.18em] text-[#64748b]">Action</p>
+                    <p className="mb-2 text-[11px] uppercase tracking-[0.18em] text-[#64748b]">Action taken</p>
                     <p className="text-sm leading-6 text-[#cbd5e1]">{decision.action}</p>
                   </div>
                 </div>
@@ -265,12 +262,12 @@ export default async function CandidatePage({
 
           <div className="space-y-4">
             <div className="rounded-[24px] border border-[#223046] bg-[#111827]/28 p-4 sm:p-5">
-              <p className="mb-3 text-[11px] uppercase tracking-[0.2em] text-[#d97706]">Alignment frame</p>
+              <p className="mb-3 text-[11px] uppercase tracking-[0.2em] text-[#d97706]">How the score is judged</p>
               <p className="mb-3 leading-7 text-[#cbd5e1]">
                 {buildAlignmentCopy(candidate.name, priorities)}
               </p>
               <p className="text-sm leading-6 text-[#94a3b8]">
-                Overrides belong in the public record so voters can judge them later against the platform that got the candidate elected.
+                Overrides belong in the record so voters can judge them against the platform that got the candidate elected.
               </p>
             </div>
 
@@ -283,7 +280,7 @@ export default async function CandidatePage({
               <p className="text-sm leading-6 text-[#cbd5e1]">{parsed.tradeoffsAccepted}</p>
             </div>
             <div className="rounded-[24px] border border-[#223046] bg-[#111827]/28 p-4 sm:p-5">
-              <p className="mb-3 text-[11px] uppercase tracking-[0.2em] text-red-400">Tradeoffs rejected</p>
+              <p className="mb-3 text-[11px] uppercase tracking-[0.2em] text-red-400">Hard lines</p>
               <p className="text-sm leading-6 text-[#cbd5e1]">{parsed.tradeoffsRejected}</p>
             </div>
             {parsed.tone && (
@@ -328,7 +325,7 @@ export default async function CandidatePage({
             Ask {firstName} anything
           </h2>
           <p className="mb-6 max-w-xl text-sm leading-6 text-[#64748b]">
-            This AI reasons from the campaign platform and decision rules above. It is there to show how this public governing system would handle hard choices in public.
+            This AI answers from the published platform above. It is there to show how the governing frame handles hard choices in public.
           </p>
           <div className="max-w-2xl">
             <ChatWithQuestions candidateSlug={candidate.slug} fallbackFaqs={candidate.faq} />

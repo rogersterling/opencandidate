@@ -26,10 +26,10 @@ export default function CandidateCard({ candidate }: { candidate: Candidate }) {
             {candidate.summary}
           </p>
           {latestDecision && (
-            <div className="grid gap-3 border-t border-[#1e293b] pt-4 text-sm max-w-2xl sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-4">
+            <div className="grid max-w-2xl gap-3 border-t border-[#1e293b] pt-4 text-sm sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-4">
               <div>
                 <p className="mb-1 text-[11px] uppercase tracking-[0.18em] text-[#64748b]">
-                  Latest decision
+                  Most recent test
                 </p>
                 <p className="text-[#cbd5e1]">{latestDecision.issue}</p>
               </div>
